@@ -12,18 +12,18 @@
 *.la
 *.a
 
-Engine/Binaries/
-Engine/DerivedDataCache/
-Engine/Intermediate/
-Engine/Plugins/*/*/Binaries/
-Engine/Plugins/*/*/Intermediate/
-Engine/Programs/UnrealHeaderTool/
-Engine/Programs/UnrealPak/
-Engine/Saved/
-Engine/Shaders/Binaries/
-Engine/Source/*/*/*/obj/
-Engine/Source/*/*/obj/
-Engine/Source/*/obj/
+Binaries/
+DerivedDataCache/
+Intermediate/
+Plugins/*/*/Binaries/
+Plugins/*/*/Intermediate/
+Programs/UnrealHeaderTool/
+Programs/UnrealPak/
+Saved/
+Shaders/Binaries/
+Source/*/*/*/obj/
+Source/*/*/obj/
+Source/*/obj/
 
 *.opensdf
 *.sdf
