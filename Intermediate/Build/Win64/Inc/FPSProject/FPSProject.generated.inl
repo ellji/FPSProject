@@ -6,16 +6,16 @@
 ===========================================================================*/
 
 #ifndef FPSPROJECT_FPSCharacter_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../../Unreal Projects/FPSProject/Source/FPSProject/FPSCharacter.h"
+	#include "E:\Users\Chris\My Documents\GitHub\FPSProject\Source\FPSProject\FPSCharacter.h"
 #endif
 #ifndef FPSPROJECT_FPSGameMode_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../../Unreal Projects/FPSProject/Source/FPSProject/FPSGameMode.h"
+	#include "E:\Users\Chris\My Documents\GitHub\FPSProject\Source\FPSProject\FPSGameMode.h"
 #endif
 #ifndef FPSPROJECT_FPSHud_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../../Unreal Projects/FPSProject/Source/FPSProject/FPSHUD.h"
+	#include "E:\Users\Chris\My Documents\GitHub\FPSProject\Source\FPSProject\FPSHud.h"
 #endif
 #ifndef FPSPROJECT_FPSProjectile_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../../Unreal Projects/FPSProject/Source/FPSProject/FPSProjectile.h"
+	#include "E:\Users\Chris\My Documents\GitHub\FPSProject\Source\FPSProject\FPSProjectile.h"
 #endif
 	void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 	{
@@ -268,7 +268,7 @@
 #if WITH_METADATA
 			UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
 			MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Rendering Actor Input Replication"));
-			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FPSHUD.h"));
+			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
 #endif
 		}
 		check(OuterClass->GetClass());
