@@ -3,6 +3,7 @@
 #pragma once
 
 #include "GameFramework/Character.h"
+#include "BlockState.h"
 #include "FPSCharacter.generated.h"
 
 /**
@@ -13,9 +14,10 @@ class AFPSCharacter : public ACharacter
 {
 	GENERATED_UCLASS_BODY()
 
-	virtual void BeginPlay() OVERRIDE;
-
 	public:
+		virtual void BeginPlay() OVERRIDE;
+		virtual void Tick(float DeltaTime) OVERRIDE;
+
 		/** First Person Camera */
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 			TSubobjectPtr<UCameraComponent> FirstPersonCameraComponent;
@@ -28,9 +30,22 @@ class AFPSCharacter : public ACharacter
 		/** projectile class to spawn */
 		UPROPERTY(EditDefaultsOnly, Category = Projectile)
 			TSubclassOf<class AFPSProjectile> ProjectileClass;
+		/** arm distance */
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaction")
+			float PlayerInteractionDistance;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaction")
+			bool BlockGrabbed;
+		
+		ABlockState* Pickup;
+
+		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Interaction")
+			TSubobjectPtr<UPhysicsHandleComponent> PhysicsHandleComponent;
 
 	protected:
 		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
+
+		void DoTrace(FHitResult* RV_Hit);
 
 		//handles moving forward/backward
 		UFUNCTION()
@@ -49,6 +64,10 @@ class AFPSCharacter : public ACharacter
 		//handles firing
 		UFUNCTION()
 			void OnFire();
+
+		// handles using
+		UFUNCTION()
+			void OnUse();
 
 	private:
 };

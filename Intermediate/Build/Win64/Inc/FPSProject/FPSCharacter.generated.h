@@ -14,6 +14,11 @@
 
 #define AFPSCharacter_EVENTPARMS
 #define AFPSCharacter_RPC_WRAPPERS \
+	DECLARE_FUNCTION(execOnUse) \
+	{ \
+		P_FINISH; \
+		this->OnUse(); \
+	} \
 	DECLARE_FUNCTION(execOnStopJump) \
 	{ \
 		P_FINISH; \

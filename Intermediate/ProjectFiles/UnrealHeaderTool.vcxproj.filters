@@ -5,7 +5,7 @@
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\UnrealHeaderTool.Target.cs" />
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\UnrealHeaderTool.Build.cs" />
 		<Filter Include="Private">
-			<UniqueIdentifier>{8266FA6B-8E90-4BDB-B103-0C97708B42F7}</UniqueIdentifier>
+			<UniqueIdentifier>{D728FE8F-FFC8-4AD2-BE48-CA9696E87241}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\Private\BaseParser.cpp">
 			<Filter>Private</Filter>
@@ -41,13 +41,13 @@
 			<Filter>Private</Filter>
 		</ClCompile >
 		<Filter Include="Public">
-			<UniqueIdentifier>{33FE373B-A2A2-4ECC-84AE-5341F972CEBC}</UniqueIdentifier>
+			<UniqueIdentifier>{20B88913-D1FA-48C8-BCEC-A0F227FAA5C7}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\Public\UnrealHeaderTool.h">
 			<Filter>Public</Filter>
 		</ClInclude >
 		<Filter Include="Resources">
-			<UniqueIdentifier>{58DF020B-84BD-42FE-8B55-BCCB8E5631F2}</UniqueIdentifier>
+			<UniqueIdentifier>{E99AB5AA-BCD4-4FB0-8FE9-3B5FEC067C73}</UniqueIdentifier>
 		</Filter>
 		<ResourceCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\Resources\PCLaunch.rc">
 			<Filter>Resources</Filter>
@@ -56,7 +56,7 @@
 			<Filter>Resources</Filter>
 		</Manifest >
 		<Filter Include="Resources\UHTDebugging">
-			<UniqueIdentifier>{A6D38687-7260-4AB8-8739-3E407A2BE30F}</UniqueIdentifier>
+			<UniqueIdentifier>{541EB9E8-4141-46FC-BD64-91499F337525}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\Resources\UHTDebugging\EnumOnlyHeader.h">
 			<Filter>Resources\UHTDebugging</Filter>

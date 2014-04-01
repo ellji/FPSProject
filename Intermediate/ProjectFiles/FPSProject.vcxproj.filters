@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\FPSProject.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{99D5689C-F897-4E7E-B76D-9108DDFC9DB1}</UniqueIdentifier>
+			<UniqueIdentifier>{F871C00D-4797-4E99-A3A0-445CC5C0A067}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\FPSProject.Target.cs">
 			<Filter>Source</Filter>
@@ -13,8 +13,11 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{98053E37-AE60-4A84-A252-2A06CB5994B0}</UniqueIdentifier>
+			<UniqueIdentifier>{59124060-F63F-4956-A972-8DDC2BF45A04}</UniqueIdentifier>
 		</Filter>
+		<None Include="..\..\Config\DefaultEditorUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
 		<None Include="..\..\Config\DefaultEngine.ini">
 			<Filter>Config</Filter>
 		</None >
@@ -25,8 +28,14 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\FPSProject">
-			<UniqueIdentifier>{B244E381-304F-4322-98AE-784F2FC16C09}</UniqueIdentifier>
+			<UniqueIdentifier>{3D7425DC-AB77-4737-A12B-FDB0B0663396}</UniqueIdentifier>
 		</Filter>
+		<ClCompile Include="..\..\Source\FPSProject\BlockState.cpp">
+			<Filter>Source\FPSProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\FPSProject\BlockState.h">
+			<Filter>Source\FPSProject</Filter>
+		</ClInclude >
 		<ClCompile Include="..\..\Source\FPSProject\FPSCharacter.cpp">
 			<Filter>Source\FPSProject</Filter>
 		</ClCompile >
@@ -60,11 +69,17 @@
 		<ClInclude Include="..\..\Source\FPSProject\FPSProjectile.h">
 			<Filter>Source\FPSProject</Filter>
 		</ClInclude >
+		<ClCompile Include="..\..\Source\FPSProject\Usable.cpp">
+			<Filter>Source\FPSProject</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\FPSProject\Usable.h">
+			<Filter>Source\FPSProject</Filter>
+		</ClInclude >
 		<Filter Include="Source\FPSProject\Resources">
-			<UniqueIdentifier>{611B4CAA-B077-4460-865F-B74B0E31668C}</UniqueIdentifier>
+			<UniqueIdentifier>{AF5D3B42-8083-4ACA-89F9-21036AB8901F}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Source\FPSProject\Resources\Windows">
-			<UniqueIdentifier>{C76AF38C-52FD-4425-9F1B-7F4EDE7FCB90}</UniqueIdentifier>
+			<UniqueIdentifier>{389611B1-3B31-4B9C-BA49-F680125E060F}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\FPSProject\Resources\Windows\FPSProject.ico">
 			<Filter>Source\FPSProject\Resources\Windows</Filter>

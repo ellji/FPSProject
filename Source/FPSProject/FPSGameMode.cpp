@@ -21,9 +21,4 @@ AFPSGameMode::AFPSGameMode(const class FPostConstructInitializeProperties& PCIP)
 void AFPSGameMode::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("FUCK THIS"));
-	}
 }
