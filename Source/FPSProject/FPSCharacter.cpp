@@ -100,6 +100,18 @@ void AFPSCharacter::Tick(float DeltaTime)
 		16,
 		FColor(255, 0, 0));
 
+	if (GEngine)
+	{
+		FVector PhysHandleLoc = FVector::ZeroVector;
+		FRotator PhysHandleRot = FRotator::ZeroRotator;
+		PhysicsHandleComponent->GetTargetLocationAndRotation(PhysHandleLoc, PhysHandleRot);
+		DrawDebugSphere(GetWorld(),
+			PhysHandleLoc,
+			20.0f,
+			16,
+			FColor(0, 255, 0));
+	}
+
 	if (BlockGrabbed)
 	{
 		if (GEngine)
@@ -107,10 +119,11 @@ void AFPSCharacter::Tick(float DeltaTime)
 
 		if (Pickup)
 		{
-			Pickup->SetActorLocation(End, true);
-			Pickup->SetActorRotation(CameraRot);
+			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Green, "BlockGrabbed && Pickup");
+			//Pickup->SetActorLocation(End, true);
+			//Pickup->SetActorRotation(CameraRot);
 		}
-		//PhysicsHandleComponent->SetTargetLocation(End);
+		PhysicsHandleComponent->SetTargetLocation(End);
 	}
 }
 
@@ -205,7 +218,7 @@ void AFPSCharacter::OnUse()
 			FVector Start = CameraLoc;
 			FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
 			
-			//PhysicsHandleComponent->GrabComponent(Pickup->StaticMeshComponent, RV_Hit.BoneName, RV_Hit.Location, true);
+			PhysicsHandleComponent->GrabComponent(Pickup->StaticMeshComponent, RV_Hit.BoneName, RV_Hit.Location, true);
 
 			Pickup->OnUsed(this->Controller); // call the interface so the object can do whatever it does when its used
 
@@ -215,7 +228,7 @@ void AFPSCharacter::OnUse()
 	}
 	else
 	{
-		//PhysicsHandleComponent->ReleaseComponent();
+		PhysicsHandleComponent->ReleaseComponent();
 		BlockGrabbed = false;
 
 		FBodyInstance* BodyInst = Pickup->StaticMeshComponent->GetBodyInstance();
