@@ -27,7 +27,7 @@ void ABlockState::OnUsed(AController * user)
 
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, this->GetName());
+		GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Blue, this->GetName());
 	}
 }
 

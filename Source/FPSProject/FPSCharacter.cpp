@@ -57,21 +57,60 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* InputComponent)
 
 void AFPSCharacter::Tick(float DeltaTime)
 {
+	// let's grab a line forwards
+	FHitResult RV_Hit(ForceInit);
+	FCollisionQueryParams RV_TraceParams = FCollisionQueryParams(FName(TEXT("RV_Trace")), true, this);
+	if (Pickup)
+		RV_TraceParams.AddIgnoredActor(Pickup);
+
+	FVector CameraLoc;
+	FRotator CameraRot;
+	GetActorEyesViewPoint(CameraLoc, CameraRot);
+
+	FVector Start = CameraLoc;
+	FVector End;
+	
+	bool DidTrace = DoTrace(&RV_Hit, &RV_TraceParams);
+
+	if (!DidTrace)
+	{
+		if (GEngine)
+			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Red, "Didn't hit");
+
+		End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
+	}
+	else
+	{
+		if (GEngine)
+			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Green, "Hit");
+
+		End = RV_Hit.Location;
+	}
+
+	DrawDebugLine(GetWorld(),
+		Start + FVector(0, 0, -10),
+		End,
+		FColor(255, 0, 0),
+		false, -1, 0,
+		5.0f);
+
+	DrawDebugSphere(GetWorld(),
+		End,
+		10.0f,
+		16,
+		FColor(255, 0, 0));
+
 	if (BlockGrabbed)
 	{
-		FVector CameraLoc;
-		FRotator CameraRot;
-		GetActorEyesViewPoint(CameraLoc, CameraRot);
-
-		FVector Start = CameraLoc;
-		FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
-
 		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Blue, End.ToString());
-		}
+			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Blue, "Pickup");
 
-		PhysicsHandleComponent->SetTargetLocation(End);
+		if (Pickup)
+		{
+			Pickup->SetActorLocation(End, true);
+			Pickup->SetActorRotation(CameraRot);
+		}
+		//PhysicsHandleComponent->SetTargetLocation(End);
 	}
 }
 
@@ -151,7 +190,8 @@ void AFPSCharacter::OnUse()
 	{
 		// re-init hit info, do the trace, and grab the usable item
 		FHitResult RV_Hit(ForceInit);
-		DoTrace(&RV_Hit);
+		FCollisionQueryParams RV_TraceParams = FCollisionQueryParams(FName(TEXT("RV_Trace")), true, this);
+		DoTrace(&RV_Hit, &RV_TraceParams);
 
 		Pickup = Cast<ABlockState>(RV_Hit.GetActor());
 		if (Pickup) // we actually hit a pickup
@@ -165,24 +205,31 @@ void AFPSCharacter::OnUse()
 			FVector Start = CameraLoc;
 			FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
 			
-			PhysicsHandleComponent->GrabComponent(Pickup->StaticMeshComponent, RV_Hit.BoneName, RV_Hit.Location, true);
+			//PhysicsHandleComponent->GrabComponent(Pickup->StaticMeshComponent, RV_Hit.BoneName, RV_Hit.Location, true);
 
 			Pickup->OnUsed(this->Controller); // call the interface so the object can do whatever it does when its used
+
+			FBodyInstance* BodyInst = Pickup->StaticMeshComponent->GetBodyInstance();
+			BodyInst->SetEnableGravity(false);
 		}
 	}
 	else
 	{
-		PhysicsHandleComponent->ReleaseComponent();
+		//PhysicsHandleComponent->ReleaseComponent();
 		BlockGrabbed = false;
+
+		FBodyInstance* BodyInst = Pickup->StaticMeshComponent->GetBodyInstance();
+		BodyInst->SetEnableGravity(true);
+
 		Pickup = NULL;
 	}
 }
 
-void AFPSCharacter::DoTrace(FHitResult* RV_Hit)
+bool AFPSCharacter::DoTrace(FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceParams)
 {
 	if (Controller == NULL) // access the controller, make sure we have one
 	{
-		return;
+		return false;
 	}
 
 	// get the camera transform
@@ -193,17 +240,18 @@ void AFPSCharacter::DoTrace(FHitResult* RV_Hit)
 	FVector Start = CameraLoc;
 	FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
 
-	FCollisionQueryParams RV_TraceParams = FCollisionQueryParams(FName(TEXT("RV_Trace")), true, this);
-	RV_TraceParams.bTraceComplex = true;
-	RV_TraceParams.bTraceAsyncScene = true;
-	RV_TraceParams.bReturnPhysicalMaterial = true;
+	RV_TraceParams->bTraceComplex = true;
+	RV_TraceParams->bTraceAsyncScene = true;
+	RV_TraceParams->bReturnPhysicalMaterial = true;
 
 	//  do the line trace
-	GetWorld()->LineTraceSingle(
+	bool DidTrace = GetWorld()->LineTraceSingle(
 		*RV_Hit,		//result
 		Start,		//start
 		End,		//end
 		ECC_Pawn,	//collision channel
-		RV_TraceParams
+		*RV_TraceParams
 		);
+
+	return DidTrace;
 }
