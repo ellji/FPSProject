@@ -331,6 +331,8 @@
 		<None Include="..\..\Config\DefaultEngine.ini" />
 		<None Include="..\..\Config\DefaultGame.ini" />
 		<None Include="..\..\Config\DefaultInput.ini" />
+		<ClCompile Include="..\..\Source\FPSProject\AbilityCard.cpp" />
+		<ClInclude Include="..\..\Source\FPSProject\AbilityCard.h" />
 		<ClCompile Include="..\..\Source\FPSProject\BlockState.cpp" />
 		<ClInclude Include="..\..\Source\FPSProject\BlockState.h" />
 		<ClCompile Include="..\..\Source\FPSProject\FPSCharacter.cpp" />

@@ -63,26 +63,27 @@ void AFPSCharacter::Tick(float DeltaTime)
 	if (Pickup)
 		RV_TraceParams.AddIgnoredActor(Pickup);
 
+	// get the camera transform
 	FVector CameraLoc;
 	FRotator CameraRot;
 	GetActorEyesViewPoint(CameraLoc, CameraRot);
 
 	FVector Start = CameraLoc;
-	FVector End;
+	FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
 	
-	bool DidTrace = DoTrace(&RV_Hit, &RV_TraceParams);
+	bool DidTrace = DoTrace(Start, End, &RV_Hit, &RV_TraceParams);
 
 	if (!DidTrace)
 	{
 		if (GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Red, "Didn't hit");
+			GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Red, "Didn't hit");
 
-		End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
+		//End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
 	}
 	else
 	{
 		if (GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Green, "Hit");
+			GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Green, "Hit");
 
 		End = RV_Hit.Location;
 	}
@@ -100,7 +101,7 @@ void AFPSCharacter::Tick(float DeltaTime)
 		16,
 		FColor(255, 0, 0));
 
-	if (GEngine)
+	if (PhysicsHandleComponent.IsValid())
 	{
 		FVector PhysHandleLoc = FVector::ZeroVector;
 		FRotator PhysHandleRot = FRotator::ZeroRotator;
@@ -110,20 +111,37 @@ void AFPSCharacter::Tick(float DeltaTime)
 			20.0f,
 			16,
 			FColor(0, 255, 0));
-	}
 
-	if (BlockGrabbed)
-	{
 		if (GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Blue, "Pickup");
-
-		if (Pickup)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 0.01f, FColor::Green, "BlockGrabbed && Pickup");
-			//Pickup->SetActorLocation(End, true);
-			//Pickup->SetActorRotation(CameraRot);
+			FString Debug = "Handle Off";
+			if (PhysicsHandleComponent->IsActive())
+				FString Debug = "Handle On";
+			
+			GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Magenta, Debug);
 		}
-		PhysicsHandleComponent->SetTargetLocation(End);
+
+		if (BlockGrabbed)
+		{
+			// see what we're standing on
+			ABlockState* StandingOnBlock = StandingOn();
+
+			if (Pickup && Pickup != StandingOnBlock)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Green, "BlockGrabbed && Pickup");
+				//Pickup->SetActorLocation(End, true);
+				FRotator CurrentRotation = Pickup->GetActorRotation();
+				FRotator NewRotation = FRotator(CurrentRotation.Pitch, CameraRot.Yaw, CurrentRotation.Roll);
+				//Pickup->SetActorRotation(NewRotation);
+				
+				PhysicsHandleComponent->SetTargetLocation(End);
+			}
+			else
+			{
+				// drop the block - because we're already holding the block, calling onuse should drop it
+				OnUse();
+			}
+		}
 	}
 }
 
@@ -201,24 +219,36 @@ void AFPSCharacter::OnUse()
 {
 	if (!BlockGrabbed)
 	{
+		// see what we're standing on
+		ABlockState* StandingOnBlock = StandingOn();
+
+		if (StandingOnBlock)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, StandingOnBlock->GetHumanReadableName());
+		}
+
+		// get the camera transform
+		FVector CameraLoc;
+		FRotator CameraRot;
+		GetActorEyesViewPoint(CameraLoc, CameraRot);
+
+		FVector Start = CameraLoc;
+		FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
+
 		// re-init hit info, do the trace, and grab the usable item
 		FHitResult RV_Hit(ForceInit);
 		FCollisionQueryParams RV_TraceParams = FCollisionQueryParams(FName(TEXT("RV_Trace")), true, this);
-		DoTrace(&RV_Hit, &RV_TraceParams);
+		DoTrace(Start, End, &RV_Hit, &RV_TraceParams);
 
 		Pickup = Cast<ABlockState>(RV_Hit.GetActor());
-		if (Pickup) // we actually hit a pickup
+		if (Pickup && Pickup != StandingOnBlock) // we actually hit a pickup
 		{
 			BlockGrabbed = true;
 
-			FVector CameraLoc;
-			FRotator CameraRot;
-			GetActorEyesViewPoint(CameraLoc, CameraRot);
-
-			FVector Start = CameraLoc;
-			FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
+			Pickup->SetActorLocation(End, true);
 			
-			PhysicsHandleComponent->GrabComponent(Pickup->StaticMeshComponent, RV_Hit.BoneName, RV_Hit.Location, true);
+			PhysicsHandleComponent->GrabComponent(Pickup->StaticMeshComponent, RV_Hit.BoneName, End, true);
+			PhysicsHandleComponent->Activate(true);
 
 			Pickup->OnUsed(this->Controller); // call the interface so the object can do whatever it does when its used
 
@@ -229,6 +259,7 @@ void AFPSCharacter::OnUse()
 	else
 	{
 		PhysicsHandleComponent->ReleaseComponent();
+		PhysicsHandleComponent->Activate(false);
 		BlockGrabbed = false;
 
 		FBodyInstance* BodyInst = Pickup->StaticMeshComponent->GetBodyInstance();
@@ -238,20 +269,12 @@ void AFPSCharacter::OnUse()
 	}
 }
 
-bool AFPSCharacter::DoTrace(FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceParams)
+bool AFPSCharacter::DoTrace(FVector Start, FVector End, FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceParams)
 {
 	if (Controller == NULL) // access the controller, make sure we have one
 	{
 		return false;
 	}
-
-	// get the camera transform
-	FVector CameraLoc;
-	FRotator CameraRot;
-	GetActorEyesViewPoint(CameraLoc, CameraRot);
-
-	FVector Start = CameraLoc;
-	FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
 
 	RV_TraceParams->bTraceComplex = true;
 	RV_TraceParams->bTraceAsyncScene = true;
@@ -267,4 +290,32 @@ bool AFPSCharacter::DoTrace(FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceP
 		);
 
 	return DidTrace;
+}
+
+ABlockState* AFPSCharacter::StandingOn()
+{
+	FVector CurrentLocation = this->GetActorLocation();
+	FVector CurrentUp = this->GetActorUpVector();
+
+	// re-init hit info, do the trace, and grab the usable item
+	FHitResult RV_Hit(ForceInit);
+	FCollisionQueryParams RV_TraceParams = FCollisionQueryParams(FName(TEXT("RV_Trace")), true, this);
+	DoTrace(CurrentLocation, CurrentLocation - (CurrentUp * 120.0f), &RV_Hit, &RV_TraceParams);
+
+	ABlockState* Block = Cast<ABlockState>(RV_Hit.GetActor());
+
+	DrawDebugLine(GetWorld(),
+		CurrentLocation,
+		CurrentLocation - (CurrentUp * 120.0f),
+		FColor(0, 0, 255),
+		false, -1, 0,
+		5.0f);
+
+	DrawDebugSphere(GetWorld(),
+		CurrentLocation - (CurrentUp * 120.0f),
+		10.0f,
+		16,
+		FColor(0, 0, 255));
+
+	return Block;
 }

@@ -298,7 +298,7 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\LiveEditorListe
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\SoundVisualizations\Source\SoundVisualizations\SoundVisualizations.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\WindowsDeviceProfileSelector\Source\WindowsDeviceProfileSelector\WindowsDeviceProfileSelector.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\WindowsMoviePlayer\Source\WindowsMoviePlayer\WindowsMoviePlayer.Build.cs
-C:\Users\Chris Hayward\Documents\Git\FPSProject_New\Source\FPSProject\FPSProject.Build.cs
+E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSProject.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\UE4Client.Target.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\UE4Editor.Target.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\UE4Game.Target.cs
@@ -315,8 +315,9 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\UnrealHeaderTool.Target.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealLightmass\UnrealLightmass.Target.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealPak\UnrealPak.Target.cs
-C:\Users\Chris Hayward\Documents\Git\FPSProject_New\Source\FPSProject.Target.cs
-C:\Users\Chris Hayward\Documents\Git\FPSProject_New\Source\FPSProjectEditor.Target.cs
+E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject.Target.cs
+E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProjectEditor.Target.cs
+PSProjectEditor.Target.cs
 LiveEditorListenServer.Build.cs
 C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\SoundVisualizations\Source\SoundVisualizations\SoundVisualizations.Build.cs
 C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\WindowsDeviceProfileSelector\Source\WindowsDeviceProfileSelector\WindowsDeviceProfileSelector.Build.cs

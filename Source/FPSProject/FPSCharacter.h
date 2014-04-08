@@ -45,7 +45,8 @@ class AFPSCharacter : public ACharacter
 	protected:
 		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
 
-		bool DoTrace(FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceParams);
+		bool DoTrace(FVector Start, FVector End, FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceParams);
+		ABlockState* StandingOn();
 
 		//handles moving forward/backward
 		UFUNCTION()

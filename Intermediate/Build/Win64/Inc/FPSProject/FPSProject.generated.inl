@@ -5,24 +5,31 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
+#ifndef FPSPROJECT_AbilityCard_generated_h
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\AbilityCard.h"
+#endif
 #ifndef FPSPROJECT_Usable_generated_h
-	#include "C:/Users/Chris/Documents/Git/UnrealEngine/../../../../Chris Hayward/Documents/Git/FPSProject_New/Source/FPSProject/Usable.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\Usable.h"
 #endif
 #ifndef FPSPROJECT_BlockState_generated_h
-	#include "C:/Users/Chris/Documents/Git/UnrealEngine/../../../../Chris Hayward/Documents/Git/FPSProject_New/Source/FPSProject/BlockState.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\BlockState.h"
 #endif
 #ifndef FPSPROJECT_FPSCharacter_generated_h
-	#include "C:/Users/Chris/Documents/Git/UnrealEngine/../../../../Chris Hayward/Documents/Git/FPSProject_New/Source/FPSProject/FPSCharacter.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSCharacter.h"
 #endif
 #ifndef FPSPROJECT_FPSGameMode_generated_h
-	#include "C:/Users/Chris/Documents/Git/UnrealEngine/../../../../Chris Hayward/Documents/Git/FPSProject_New/Source/FPSProject/FPSGameMode.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSGameMode.h"
 #endif
 #ifndef FPSPROJECT_FPSHud_generated_h
-	#include "C:/Users/Chris/Documents/Git/UnrealEngine/../../../../Chris Hayward/Documents/Git/FPSProject_New/Source/FPSProject/FPSHud.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSHud.h"
 #endif
 #ifndef FPSPROJECT_FPSProjectile_generated_h
-	#include "C:/Users/Chris/Documents/Git/UnrealEngine/../../../../Chris Hayward/Documents/Git/FPSProject_New/Source/FPSProject/FPSProjectile.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSProjectile.h"
 #endif
+	void AAbilityCard::StaticRegisterNativesAAbilityCard()
+	{
+	}
+	IMPLEMENT_CLASS(AAbilityCard);
 	void UUsable::StaticRegisterNativesUUsable()
 	{
 	}
@@ -56,6 +63,7 @@
 	IMPLEMENT_CLASS(AFPSProjectile);
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
+	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_AStaticMeshActor();
 	ENGINE_API class UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API class UClass* Z_Construct_UClass_UPhysicsHandleComponent_NoRegister();
@@ -67,10 +75,11 @@
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_UEngineTypes_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 
+	FPSPROJECT_API class UClass* Z_Construct_UClass_AAbilityCard_NoRegister();
+	FPSPROJECT_API class UClass* Z_Construct_UClass_AAbilityCard();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_UUsable_NoRegister();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_UUsable();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_ABlockState_NoRegister();
@@ -91,6 +100,32 @@
 	FPSPROJECT_API class UClass* Z_Construct_UClass_AFPSProjectile_NoRegister();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_AFPSProjectile();
 	FPSPROJECT_API class UPackage* Z_Construct_UPackage_FPSProject();
+	UClass* Z_Construct_UClass_AAbilityCard_NoRegister()
+	{
+		return AAbilityCard::StaticClass();
+	}
+	UClass* Z_Construct_UClass_AAbilityCard()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_AActor();
+			Z_Construct_UPackage_FPSProject();
+			OuterClass = AAbilityCard::StaticClass();
+			UObjectForceRegistration(OuterClass);
+			OuterClass->ClassFlags |= 0x00800080;
+
+
+			OuterClass->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("AbilityCard.h"));
+#endif
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AAbilityCard(Z_Construct_UClass_AAbilityCard);
 	UClass* Z_Construct_UClass_UUsable_NoRegister()
 	{
 		return UUsable::StaticClass();
@@ -469,8 +504,8 @@
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/FPSProject")), false, false));
 			ReturnPackage->PackageFlags |= PKG_CompiledIn | 0x00000000;
 			FGuid Guid;
-			Guid.A = 0x26C287F3;
-			Guid.B = 0x672240F1;
+			Guid.A = 0xA33796F1;
+			Guid.B = 0x4E3490AE;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);
