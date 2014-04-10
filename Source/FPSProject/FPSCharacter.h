@@ -37,7 +37,10 @@ class AFPSCharacter : public ACharacter
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaction")
 			bool BlockGrabbed;
 		
+		// block we've picked up
 		ABlockState* Pickup;
+		// block we're standing on
+		ABlockState* Standing;
 
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Interaction")
 			TSubobjectPtr<UPhysicsHandleComponent> PhysicsHandleComponent;
@@ -46,7 +49,7 @@ class AFPSCharacter : public ACharacter
 		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
 
 		bool DoTrace(FVector Start, FVector End, FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceParams);
-		ABlockState* StandingOn();
+		void StandingOn();
 
 		//handles moving forward/backward
 		UFUNCTION()

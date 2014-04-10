@@ -63,7 +63,6 @@
 	IMPLEMENT_CLASS(AFPSProjectile);
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
-	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_AStaticMeshActor();
 	ENGINE_API class UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API class UClass* Z_Construct_UClass_UPhysicsHandleComponent_NoRegister();
@@ -75,9 +74,11 @@
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_UEngineTypes_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 
+	FPSPROJECT_API class UEnum* Z_Construct_UEnum_AAbilityCard_ECardType();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_AAbilityCard_NoRegister();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_AAbilityCard();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_UUsable_NoRegister();
@@ -100,6 +101,43 @@
 	FPSPROJECT_API class UClass* Z_Construct_UClass_AFPSProjectile_NoRegister();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_AFPSProjectile();
 	FPSPROJECT_API class UPackage* Z_Construct_UPackage_FPSProject();
+	UEnum* Z_Construct_UEnum_AAbilityCard_ECardType()
+	{
+		UClass* Outer=Z_Construct_UClass_AAbilityCard();
+		static UEnum* ReturnEnum = NULL;
+		if (!ReturnEnum)
+		{
+			ReturnEnum = new(Outer, TEXT("ECardType"), RF_Public|RF_Transient|RF_Native) UEnum(FPostConstructInitializeProperties());
+			TArray<FName> EnumNames;
+			EnumNames.Add(FName(TEXT("ECardType::Card_Grow")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Shrink")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Jump")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Tangible")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Intangible")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Intensifier")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Multiplier")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Heavy")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_Light")));
+			EnumNames.Add(FName(TEXT("ECardType::Card_MAX")));
+			ReturnEnum->SetEnums(EnumNames, true);
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnEnum->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnEnum, TEXT("BlueprintType"), TEXT("true"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Grow.DisplayName"), TEXT("Grow"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Heavy.DisplayName"), TEXT("Heavy"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Intangible.DisplayName"), TEXT("Intangible"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Intensifier.DisplayName"), TEXT("Intensifier"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Jump.DisplayName"), TEXT("Jump"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Light.DisplayName"), TEXT("Light"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Multiplier.DisplayName"), TEXT("Multiplier"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Shrink.DisplayName"), TEXT("Shrink"));
+			MetaData->SetValue(ReturnEnum, TEXT("Card_Tangible.DisplayName"), TEXT("Tangible"));
+			MetaData->SetValue(ReturnEnum, TEXT("ModuleRelativePath"), TEXT("AbilityCard.h"));
+			MetaData->SetValue(ReturnEnum, TEXT("ToolTip"), TEXT("// max 256 entries, numbered 0-255"));
+#endif
+		}
+		return ReturnEnum;
+	}
 	UClass* Z_Construct_UClass_AAbilityCard_NoRegister()
 	{
 		return AAbilityCard::StaticClass();
@@ -109,17 +147,33 @@
 		static UClass* OuterClass = NULL;
 		if (!OuterClass)
 		{
-			Z_Construct_UClass_AActor();
+			Z_Construct_UClass_AStaticMeshActor();
 			Z_Construct_UPackage_FPSProject();
 			OuterClass = AAbilityCard::StaticClass();
 			UObjectForceRegistration(OuterClass);
 			OuterClass->ClassFlags |= 0x00800080;
 
+			OuterClass->LinkChild(Z_Construct_UEnum_AAbilityCard_ECardType());
 
+			UProperty* NewProp_BobbingAmount = new(OuterClass, TEXT("BobbingAmount"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(BobbingAmount, AAbilityCard), 0x0000000000000005);
+			UProperty* NewProp_BobbingSpeed = new(OuterClass, TEXT("BobbingSpeed"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(BobbingSpeed, AAbilityCard), 0x0000000000000005);
+			UProperty* NewProp_RotationSpeed = new(OuterClass, TEXT("RotationSpeed"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(RotationSpeed, AAbilityCard), 0x0000000000000005);
+			UProperty* NewProp_CardType = new(OuterClass, TEXT("CardType"), RF_Public|RF_Transient|RF_Native) UByteProperty(CPP_PROPERTY_BASE(CardType, AAbilityCard), 0x0000000000000005, Z_Construct_UEnum_AAbilityCard_ECardType());
 			OuterClass->StaticLink();
 #if WITH_METADATA
 			UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+			MetaData->SetValue(OuterClass, TEXT("BlueprintType"), TEXT("true"));
+			MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Input"));
+			MetaData->SetValue(OuterClass, TEXT("IsBlueprintBase"), TEXT("true"));
 			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("AbilityCard.h"));
+			MetaData->SetValue(NewProp_BobbingAmount, TEXT("Category"), TEXT("Motion"));
+			MetaData->SetValue(NewProp_BobbingAmount, TEXT("ModuleRelativePath"), TEXT("AbilityCard.h"));
+			MetaData->SetValue(NewProp_BobbingSpeed, TEXT("Category"), TEXT("Motion"));
+			MetaData->SetValue(NewProp_BobbingSpeed, TEXT("ModuleRelativePath"), TEXT("AbilityCard.h"));
+			MetaData->SetValue(NewProp_RotationSpeed, TEXT("Category"), TEXT("Motion"));
+			MetaData->SetValue(NewProp_RotationSpeed, TEXT("ModuleRelativePath"), TEXT("AbilityCard.h"));
+			MetaData->SetValue(NewProp_CardType, TEXT("Category"), TEXT("Card Type"));
+			MetaData->SetValue(NewProp_CardType, TEXT("ModuleRelativePath"), TEXT("AbilityCard.h"));
 #endif
 		}
 		check(OuterClass->GetClass());
@@ -504,8 +558,8 @@
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/FPSProject")), false, false));
 			ReturnPackage->PackageFlags |= PKG_CompiledIn | 0x00000000;
 			FGuid Guid;
-			Guid.A = 0xA33796F1;
-			Guid.B = 0x4E3490AE;
+			Guid.A = 0x38C7EFC0;
+			Guid.B = 0xD96D0F0C;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

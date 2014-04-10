@@ -124,15 +124,14 @@ void AFPSCharacter::Tick(float DeltaTime)
 		if (BlockGrabbed)
 		{
 			// see what we're standing on
-			ABlockState* StandingOnBlock = StandingOn();
+			StandingOn();
 
-			if (Pickup && Pickup != StandingOnBlock)
+			if (Pickup && Pickup != Standing)
 			{
 				GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Green, "BlockGrabbed && Pickup");
-				//Pickup->SetActorLocation(End, true);
+
 				FRotator CurrentRotation = Pickup->GetActorRotation();
 				FRotator NewRotation = FRotator(CurrentRotation.Pitch, CameraRot.Yaw, CurrentRotation.Roll);
-				//Pickup->SetActorRotation(NewRotation);
 				
 				PhysicsHandleComponent->SetTargetLocation(End);
 			}
@@ -220,11 +219,11 @@ void AFPSCharacter::OnUse()
 	if (!BlockGrabbed)
 	{
 		// see what we're standing on
-		ABlockState* StandingOnBlock = StandingOn();
+		StandingOn();
 
-		if (StandingOnBlock)
+		if (Standing)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, StandingOnBlock->GetHumanReadableName());
+			GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, Standing->GetHumanReadableName());
 		}
 
 		// get the camera transform
@@ -241,7 +240,7 @@ void AFPSCharacter::OnUse()
 		DoTrace(Start, End, &RV_Hit, &RV_TraceParams);
 
 		Pickup = Cast<ABlockState>(RV_Hit.GetActor());
-		if (Pickup && Pickup != StandingOnBlock) // we actually hit a pickup
+		if (Pickup && Pickup != Standing) // we actually hit a pickup
 		{
 			BlockGrabbed = true;
 
@@ -292,7 +291,7 @@ bool AFPSCharacter::DoTrace(FVector Start, FVector End, FHitResult* RV_Hit, FCol
 	return DidTrace;
 }
 
-ABlockState* AFPSCharacter::StandingOn()
+void AFPSCharacter::StandingOn()
 {
 	FVector CurrentLocation = this->GetActorLocation();
 	FVector CurrentUp = this->GetActorUpVector();
@@ -302,7 +301,7 @@ ABlockState* AFPSCharacter::StandingOn()
 	FCollisionQueryParams RV_TraceParams = FCollisionQueryParams(FName(TEXT("RV_Trace")), true, this);
 	DoTrace(CurrentLocation, CurrentLocation - (CurrentUp * 120.0f), &RV_Hit, &RV_TraceParams);
 
-	ABlockState* Block = Cast<ABlockState>(RV_Hit.GetActor());
+	Standing = Cast<ABlockState>(RV_Hit.GetActor());
 
 	DrawDebugLine(GetWorld(),
 		CurrentLocation,
@@ -316,6 +315,4 @@ ABlockState* AFPSCharacter::StandingOn()
 		10.0f,
 		16,
 		FColor(0, 0, 255));
-
-	return Block;
 }
