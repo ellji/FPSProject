@@ -218,7 +218,7 @@ void AFPSCharacter::OnUse()
 {
 	if (!BlockGrabbed)
 	{
-		// see what we're standing on
+			// see what we're standing on
 		StandingOn();
 
 		if (Standing)
@@ -315,4 +315,29 @@ void AFPSCharacter::StandingOn()
 		10.0f,
 		16,
 		FColor(0, 0, 255));
+}
+
+void AFPSCharacter::ReceiveHit(
+	class UPrimitiveComponent* MyComp,
+	class AActor* Other,
+	class UPrimitiveComponent* OtherComp,
+	bool bSelfMoved,
+	FVector HitLocation,
+	FVector HitNormal,
+	FVector NormalImpulse,
+	const FHitResult& Hit
+	)
+{
+	AAbilityCard *HitCard = Cast<AAbilityCard>(Other);
+
+	if (HitCard)
+	{
+		if (HitCard->CardType == ECardType::Card_Grow)
+		{
+			if (GEngine)
+				GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, TEXT("Grow"));
+			HitCard->Destroy();
+			ItemInventory.Add(&HitCard);
+		}
+	}
 }

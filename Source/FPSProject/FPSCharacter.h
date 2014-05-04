@@ -4,6 +4,7 @@
 
 #include "GameFramework/Character.h"
 #include "BlockState.h"
+#include "AbilityCard.h"
 #include "FPSCharacter.generated.h"
 
 /**
@@ -17,6 +18,17 @@ class AFPSCharacter : public ACharacter
 	public:
 		virtual void BeginPlay() OVERRIDE;
 		virtual void Tick(float DeltaTime) OVERRIDE;
+
+		virtual void ReceiveHit(
+			class UPrimitiveComponent* MyComp,
+			class AActor* Other,
+			class UPrimitiveComponent* OtherComp,
+			bool bSelfMoved,
+			FVector HitLocation,
+			FVector HitNormal,
+			FVector NormalImpulse,
+			const FHitResult& Hit
+			) OVERRIDE;
 
 		/** First Person Camera */
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
@@ -44,6 +56,9 @@ class AFPSCharacter : public ACharacter
 
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Interaction")
 			TSubobjectPtr<UPhysicsHandleComponent> PhysicsHandleComponent;
+
+		UPROPERTY(EditAnywhere, Category = Inventory)
+			TArray<AAbilityCard> ItemInventory; // Inventory
 
 	protected:
 		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
