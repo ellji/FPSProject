@@ -45,6 +45,16 @@
 		P_GET_PROPERTY(UFloatProperty,Val); \
 		P_FINISH; \
 		this->MoveForward(Val); \
+	} \
+	DECLARE_FUNCTION(execInvRight) \
+	{ \
+		P_FINISH; \
+		this->InvRight(); \
+	} \
+	DECLARE_FUNCTION(execInvLeft) \
+	{ \
+		P_FINISH; \
+		this->InvLeft(); \
 	}
 
 

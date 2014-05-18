@@ -40,6 +40,8 @@
 	IMPLEMENT_CLASS(ABlockState);
 	void AFPSCharacter::StaticRegisterNativesAFPSCharacter()
 	{
+		FNativeFunctionRegistrar::RegisterFunction(AFPSCharacter::StaticClass(),"InvLeft",(Native)&AFPSCharacter::execInvLeft);
+		FNativeFunctionRegistrar::RegisterFunction(AFPSCharacter::StaticClass(),"InvRight",(Native)&AFPSCharacter::execInvRight);
 		FNativeFunctionRegistrar::RegisterFunction(AFPSCharacter::StaticClass(),"MoveForward",(Native)&AFPSCharacter::execMoveForward);
 		FNativeFunctionRegistrar::RegisterFunction(AFPSCharacter::StaticClass(),"MoveRight",(Native)&AFPSCharacter::execMoveRight);
 		FNativeFunctionRegistrar::RegisterFunction(AFPSCharacter::StaticClass(),"OnFire",(Native)&AFPSCharacter::execOnFire);
@@ -85,6 +87,8 @@
 	FPSPROJECT_API class UClass* Z_Construct_UClass_UUsable();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_ABlockState_NoRegister();
 	FPSPROJECT_API class UClass* Z_Construct_UClass_ABlockState();
+	FPSPROJECT_API class UFunction* Z_Construct_UFunction_AFPSCharacter_InvLeft();
+	FPSPROJECT_API class UFunction* Z_Construct_UFunction_AFPSCharacter_InvRight();
 	FPSPROJECT_API class UFunction* Z_Construct_UFunction_AFPSCharacter_MoveForward();
 	FPSPROJECT_API class UFunction* Z_Construct_UFunction_AFPSCharacter_MoveRight();
 	FPSPROJECT_API class UFunction* Z_Construct_UFunction_AFPSCharacter_OnFire();
@@ -246,6 +250,38 @@
 		return OuterClass;
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ABlockState(Z_Construct_UClass_ABlockState);
+	UFunction* Z_Construct_UFunction_AFPSCharacter_InvLeft()
+	{
+		UClass* OuterClass=Z_Construct_UClass_AFPSCharacter();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(OuterClass, TEXT("InvLeft"), RF_Public|RF_Transient|RF_Native) UFunction(FPostConstructInitializeProperties(), NULL, 0x00080401, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_AFPSCharacter_InvRight()
+	{
+		UClass* OuterClass=Z_Construct_UClass_AFPSCharacter();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(OuterClass, TEXT("InvRight"), RF_Public|RF_Transient|RF_Native) UFunction(FPostConstructInitializeProperties(), NULL, 0x00080401, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
 	UFunction* Z_Construct_UFunction_AFPSCharacter_MoveForward()
 	{
 		struct FPSCharacter_eventMoveForward_Parms
@@ -375,6 +411,8 @@
 			UObjectForceRegistration(OuterClass);
 			OuterClass->ClassFlags |= 0x00800080;
 
+			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_InvLeft());
+			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_InvRight());
 			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_MoveForward());
 			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_MoveRight());
 			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_OnFire());
@@ -382,6 +420,7 @@
 			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_OnStopJump());
 			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_OnUse());
 
+			UProperty* NewProp_SelectedInventoryItem = new(OuterClass, TEXT("SelectedInventoryItem"), RF_Public|RF_Transient|RF_Native) UIntProperty(CPP_PROPERTY_BASE(SelectedInventoryItem, AFPSCharacter), 0x0000000000000001);
 			UProperty* NewProp_ItemInventory = new(OuterClass, TEXT("ItemInventory"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(ItemInventory, AFPSCharacter), 0x0000000000000001);
 			UProperty* NewProp_ItemInventory_Inner = new(NewProp_ItemInventory, TEXT("ItemInventory"), RF_Public|RF_Transient|RF_Native) UByteProperty(FPostConstructInitializeProperties(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UEnum_AAbilityCard_ECardType());
 			UProperty* NewProp_PhysicsHandleComponent = new(OuterClass, TEXT("PhysicsHandleComponent"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(PhysicsHandleComponent, AFPSCharacter), 0x00000000044a001d, Z_Construct_UClass_UPhysicsHandleComponent_NoRegister());
@@ -392,6 +431,8 @@
 			UProperty* NewProp_MuzzleOffset = new(OuterClass, TEXT("MuzzleOffset"), RF_Public|RF_Transient|RF_Native) UStructProperty(CPP_PROPERTY_BASE(MuzzleOffset, AFPSCharacter), 0x0000000000000005, Z_Construct_UScriptStruct_UObject_FVector());
 			UProperty* NewProp_FirstPersonMesh = new(OuterClass, TEXT("FirstPersonMesh"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(FirstPersonMesh, AFPSCharacter), 0x00000000044b0009, Z_Construct_UClass_USkeletalMeshComponent_NoRegister());
 			UProperty* NewProp_FirstPersonCameraComponent = new(OuterClass, TEXT("FirstPersonCameraComponent"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(FirstPersonCameraComponent, AFPSCharacter), 0x00000000044a001d, Z_Construct_UClass_UCameraComponent_NoRegister());
+			OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_AFPSCharacter_InvLeft());
+			OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_AFPSCharacter_InvRight());
 			OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_AFPSCharacter_MoveForward());
 			OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_AFPSCharacter_MoveRight());
 			OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_AFPSCharacter_OnFire());
@@ -403,6 +444,9 @@
 			UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
 			MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation AI|Navigation"));
 			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
+			MetaData->SetValue(NewProp_SelectedInventoryItem, TEXT("Category"), TEXT("Inventory"));
+			MetaData->SetValue(NewProp_SelectedInventoryItem, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
+			MetaData->SetValue(NewProp_SelectedInventoryItem, TEXT("ToolTip"), TEXT("Inventory"));
 			MetaData->SetValue(NewProp_ItemInventory, TEXT("Category"), TEXT("Inventory"));
 			MetaData->SetValue(NewProp_ItemInventory, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
 			MetaData->SetValue(NewProp_PhysicsHandleComponent, TEXT("Category"), TEXT("Interaction"));
@@ -562,8 +606,8 @@
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/FPSProject")), false, false));
 			ReturnPackage->PackageFlags |= PKG_CompiledIn | 0x00000000;
 			FGuid Guid;
-			Guid.A = 0x69ECA74F;
-			Guid.B = 0xD96D0F0C;
+			Guid.A = 0x1C70A923;
+			Guid.B = 0x2E49D72F;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

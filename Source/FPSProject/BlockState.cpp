@@ -67,3 +67,25 @@ void ABlockState::Tick(float DeltaTime)
 		}
 	}
 }
+
+void ABlockState::ReceiveCard(ECardType::Type UsedCard)
+{
+	if (UsedCard == ECardType::Card_Grow)
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Magenta, TEXT("Grow"));
+		}
+
+		FVector oldScale = StaticMeshComponent->GetComponentScale();
+		StaticMeshComponent->SetWorldScale3D(oldScale * 1.7f);
+	}
+
+	if (UsedCard == ECardType::Card_Shrink)
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Magenta, TEXT("Shrink"));
+		}
+	}
+}

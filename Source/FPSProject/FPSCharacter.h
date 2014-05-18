@@ -60,6 +60,9 @@ class AFPSCharacter : public ACharacter
 		UPROPERTY(EditAnywhere, Category = Inventory)
 			TArray< TEnumAsByte<ECardType::Type> > ItemInventory; // Inventory
 
+		UPROPERTY(EditAnywhere, Category = Inventory)
+			int32 SelectedInventoryItem; // Inventory
+
 	protected:
 		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
 
@@ -87,6 +90,12 @@ class AFPSCharacter : public ACharacter
 		// handles using
 		UFUNCTION()
 			void OnUse();
+
+		UFUNCTION()
+			void InvLeft();
+
+		UFUNCTION()
+			void InvRight();
 
 	private:
 };

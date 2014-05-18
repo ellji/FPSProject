@@ -5,6 +5,7 @@
 #include "Engine/StaticMeshActor.h"
 #include "Tickable.h"
 #include "Usable.h"
+#include "AbilityCard.h"
 #include "BlockState.generated.h"
 
 /**
@@ -23,6 +24,7 @@ class ABlockState : public AStaticMeshActor, public IUsable
 		virtual void OnUsed(AController * user) OVERRIDE;
 		virtual void DisplayPrompt(UCanvas * Canvas, AController * user) OVERRIDE;
 		virtual void Tick(float DeltaTime) OVERRIDE;
+		void ReceiveCard(ECardType::Type UsedCard);
 
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Abilities")
 			bool CanJump;

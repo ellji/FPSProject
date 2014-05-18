@@ -32,6 +32,7 @@ AFPSCharacter::AFPSCharacter(const class FPostConstructInitializeProperties& PCI
 	PhysicsHandleComponent->bAutoActivate = true;
 	PhysicsHandleComponent->RegisterComponent();
 
+	SelectedInventoryItem = 0;
 }
 
 void AFPSCharacter::BeginPlay()
@@ -53,6 +54,9 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* InputComponent)
 	InputComponent->BindAction("Fire", IE_Pressed, this, &AFPSCharacter::OnFire);
 
 	InputComponent->BindAction("Use", IE_Pressed, this, &AFPSCharacter::OnUse);
+
+	InputComponent->BindAction("InvLeft", IE_Pressed, this, &AFPSCharacter::InvLeft);
+	InputComponent->BindAction("InvRight", IE_Pressed, this, &AFPSCharacter::InvRight);
 }
 
 void AFPSCharacter::Tick(float DeltaTime)
@@ -185,32 +189,24 @@ void AFPSCharacter::OnStopJump()
 
 void AFPSCharacter::OnFire()
 {
-	// try and fire a projectile
-	if (ProjectileClass != NULL)
+	// get the camera transform
+	FVector CameraLoc;
+	FRotator CameraRot;
+	GetActorEyesViewPoint(CameraLoc, CameraRot);
+
+	FVector Start = CameraLoc;
+	FVector End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
+
+	// re-init hit info, do the trace, and grab the usable item
+	FHitResult RV_Hit(ForceInit);
+	FCollisionQueryParams RV_TraceParams = FCollisionQueryParams(FName(TEXT("RV_Trace")), true, this);
+	DoTrace(Start, End, &RV_Hit, &RV_TraceParams);
+
+	ABlockState* HitBlock = Cast<ABlockState>(RV_Hit.GetActor());
+
+	if (HitBlock)
 	{
-		// get the camera transform
-		FVector CameraLoc;
-		FRotator CameraRot;
-		GetActorEyesViewPoint(CameraLoc, CameraRot);
-		// muzzle offset is in camera space so transform it to world space before offsetting from the camera to find the final muzzle position
-		FVector const MuzzleLocation = CameraLoc + FTransform(CameraRot).TransformVector(MuzzleOffset);
-		FRotator MuzzleRotation = CameraRot;
-		MuzzleRotation.Pitch += 10.0f;
-		UWorld* const World = GetWorld();
-		if (World)
-		{
-			FActorSpawnParameters SpawnParams;
-			SpawnParams.Owner = this;
-			SpawnParams.Instigator = Instigator;
-			// spawn the projectile at the muzzle
-			AFPSProjectile* const Projectile = World->SpawnActor<AFPSProjectile>(ProjectileClass, MuzzleLocation, MuzzleRotation, SpawnParams);
-			if (Projectile)
-			{
-				// find launch direction
-				FVector const LaunchDir = MuzzleRotation.Vector();
-				Projectile->InitVelocity(LaunchDir);
-			}
-		}
+		HitBlock->ReceiveCard(ItemInventory[SelectedInventoryItem].GetValue());
 	}
 }
 
@@ -337,7 +333,47 @@ void AFPSCharacter::ReceiveHit(
 			if (GEngine)
 				GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, TEXT("Grow"));
 			ItemInventory.Add(HitCard->CardType);
-			HitCard->Destroy();
 		}
+
+		if (HitCard->CardType == ECardType::Card_Shrink)
+		{
+			if (GEngine)
+				GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, TEXT("Shrink"));
+			ItemInventory.Add(HitCard->CardType);
+		}
+
+		HitCard->Destroy();
+	}
+}
+
+void AFPSCharacter::InvLeft()
+{
+	if (ItemInventory.Num() > 0)
+	{
+		if (SelectedInventoryItem > 0)
+		{
+			SelectedInventoryItem--;
+		}
+		else
+		{
+			SelectedInventoryItem = ItemInventory.Num() - 1;
+		}
+
+	}
+}
+
+void AFPSCharacter::InvRight()
+{
+	if (ItemInventory.Num() > 0)
+	{
+		if (SelectedInventoryItem < ItemInventory.Num() - 1)
+		{
+			SelectedInventoryItem++;
+		}
+		else
+		{
+			SelectedInventoryItem = 0;
+		}
+
 	}
 }
