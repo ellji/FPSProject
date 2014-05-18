@@ -6,16 +6,16 @@
 		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.Build.cs" />
 		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.uproject" />
 		<Filter Include="Build">
-			<UniqueIdentifier>{C51D6523-722C-4343-8FA3-24313D248582}</UniqueIdentifier>
+			<UniqueIdentifier>{853B0DC1-154C-4F68-99B7-44D001FC535B}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Build\IOS">
-			<UniqueIdentifier>{F12F3202-C730-458F-87F7-9FEB7EF4935C}</UniqueIdentifier>
+			<UniqueIdentifier>{A2AABFE1-C164-4720-83B2-D13B2C0F67BB}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Build\IOS\UnrealLaunchDaemon-Info.plist">
 			<Filter>Build\IOS</Filter>
 		</None >
 		<Filter Include="Private">
-			<UniqueIdentifier>{5D88AB20-CFBD-4587-A8DD-189D9BE7B031}</UniqueIdentifier>
+			<UniqueIdentifier>{D27C2CE7-CB80-4225-9116-817050F0DC96}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\LaunchDaemonMessageHandler.cpp">
 			<Filter>Private</Filter>
@@ -33,7 +33,7 @@
 			<Filter>Private</Filter>
 		</ClInclude >
 		<Filter Include="Private\IOS">
-			<UniqueIdentifier>{EFFCB7C8-0989-4903-89FD-274AF619D4C3}</UniqueIdentifier>
+			<UniqueIdentifier>{55221B0E-B943-4D9B-9960-8B9973B395DE}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\IOS\IOSLaunchDaemonAppMain.cpp">
 			<Filter>Private\IOS</Filter>

@@ -336,8 +336,8 @@ void AFPSCharacter::ReceiveHit(
 		{
 			if (GEngine)
 				GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, TEXT("Grow"));
+			ItemInventory.Add(HitCard->CardType);
 			HitCard->Destroy();
-			ItemInventory.Add(&HitCard);
 		}
 	}
 }

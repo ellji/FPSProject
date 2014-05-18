@@ -58,7 +58,7 @@ class AFPSCharacter : public ACharacter
 			TSubobjectPtr<UPhysicsHandleComponent> PhysicsHandleComponent;
 
 		UPROPERTY(EditAnywhere, Category = Inventory)
-			TArray<AAbilityCard> ItemInventory; // Inventory
+			TArray< TEnumAsByte<ECardType::Type> > ItemInventory; // Inventory
 
 	protected:
 		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;

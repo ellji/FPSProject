@@ -382,6 +382,8 @@
 			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_OnStopJump());
 			OuterClass->LinkChild(Z_Construct_UFunction_AFPSCharacter_OnUse());
 
+			UProperty* NewProp_ItemInventory = new(OuterClass, TEXT("ItemInventory"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(ItemInventory, AFPSCharacter), 0x0000000000000001);
+			UProperty* NewProp_ItemInventory_Inner = new(NewProp_ItemInventory, TEXT("ItemInventory"), RF_Public|RF_Transient|RF_Native) UByteProperty(FPostConstructInitializeProperties(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UEnum_AAbilityCard_ECardType());
 			UProperty* NewProp_PhysicsHandleComponent = new(OuterClass, TEXT("PhysicsHandleComponent"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(PhysicsHandleComponent, AFPSCharacter), 0x00000000044a001d, Z_Construct_UClass_UPhysicsHandleComponent_NoRegister());
 			CPP_BOOL_PROPERTY_BITMASK_STRUCT(BlockGrabbed, AFPSCharacter, bool);
 			UProperty* NewProp_BlockGrabbed = new(OuterClass, TEXT("BlockGrabbed"), RF_Public|RF_Transient|RF_Native) UBoolProperty(FPostConstructInitializeProperties(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(BlockGrabbed, AFPSCharacter), 0x0000000000000005, CPP_BOOL_PROPERTY_BITMASK(BlockGrabbed, AFPSCharacter), sizeof(bool), true);
@@ -401,6 +403,8 @@
 			UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
 			MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation AI|Navigation"));
 			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
+			MetaData->SetValue(NewProp_ItemInventory, TEXT("Category"), TEXT("Inventory"));
+			MetaData->SetValue(NewProp_ItemInventory, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
 			MetaData->SetValue(NewProp_PhysicsHandleComponent, TEXT("Category"), TEXT("Interaction"));
 			MetaData->SetValue(NewProp_PhysicsHandleComponent, TEXT("ModuleRelativePath"), TEXT("FPSCharacter.h"));
 			MetaData->SetValue(NewProp_BlockGrabbed, TEXT("Category"), TEXT("Interaction"));
@@ -558,7 +562,7 @@
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/FPSProject")), false, false));
 			ReturnPackage->PackageFlags |= PKG_CompiledIn | 0x00000000;
 			FGuid Guid;
-			Guid.A = 0x38C7EFC0;
+			Guid.A = 0x69ECA74F;
 			Guid.B = 0xD96D0F0C;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;

@@ -5,28 +5,28 @@
 		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\MinidumpDiagnostics.Target.cs" />
 		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\MinidumpDiagnostics.Build.cs" />
 		<Filter Include="Private">
-			<UniqueIdentifier>{C7BC1E1B-D142-4378-8E85-62F5D41E03C6}</UniqueIdentifier>
+			<UniqueIdentifier>{637B7C61-4FEB-4868-8AF6-ADC8C2AFA3EB}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Private\MinidumpDiagnosticsApp.cpp">
 			<Filter>Private</Filter>
 		</ClCompile >
 		<Filter Include="Private\Windows">
-			<UniqueIdentifier>{3468486E-3623-47A3-A323-65A416EC3050}</UniqueIdentifier>
+			<UniqueIdentifier>{9A3E39B4-C9BE-4D54-A65E-5A44A2FDAA68}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Private\Windows\MinidumpDiagnosticsMainWindows.cpp">
 			<Filter>Private\Windows</Filter>
 		</ClCompile >
 		<Filter Include="Public">
-			<UniqueIdentifier>{3B3F51EE-20B7-4157-8621-29C78FB5D2A8}</UniqueIdentifier>
+			<UniqueIdentifier>{231FA6F3-57FC-4E28-8F54-2D9AB9E6BBB1}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="..\..\..\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Public\MinidumpDiagnosticsApp.h">
 			<Filter>Public</Filter>
 		</ClInclude >
 		<Filter Include="Resources">
-			<UniqueIdentifier>{AC74E3B5-8447-41A2-B81E-0798B5C31154}</UniqueIdentifier>
+			<UniqueIdentifier>{CCF4FFA8-D97D-4E20-9E78-EA2AE3853575}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Resources\Windows">
-			<UniqueIdentifier>{1D306758-D24A-4AAD-926A-6C5060B855CB}</UniqueIdentifier>
+			<UniqueIdentifier>{71FA5CE7-5F84-4FF4-9783-C425F4903525}</UniqueIdentifier>
 		</Filter>
 		<Manifest Include="..\..\..\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Resources\Windows\Debug-PCLaunch-Win32.manifest">
 			<Filter>Resources\Windows</Filter>
