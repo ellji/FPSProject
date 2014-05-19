@@ -37,4 +37,16 @@ class ABlockState : public AStaticMeshActor, public IUsable
 
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Abilities")
 			float JumpHeight;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Abilities")
+			float GrowFactor;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Abilities")
+			float ShrinkFactor;
+
+	private:
+		bool DoGrow;
+		bool DoShrink;
+		float ScaleAmount;
+		FVector OriginalScale;
 };

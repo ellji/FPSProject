@@ -30,6 +30,8 @@ class AFPSCharacter : public ACharacter
 			const FHitResult& Hit
 			) OVERRIDE;
 
+		FString TypeString();
+
 		/** First Person Camera */
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 			TSubobjectPtr<UCameraComponent> FirstPersonCameraComponent;

@@ -204,7 +204,7 @@ void AFPSCharacter::OnFire()
 
 	ABlockState* HitBlock = Cast<ABlockState>(RV_Hit.GetActor());
 
-	if (HitBlock)
+	if (HitBlock && ItemInventory.Num() > 0)
 	{
 		HitBlock->ReceiveCard(ItemInventory[SelectedInventoryItem].GetValue());
 	}
@@ -328,20 +328,12 @@ void AFPSCharacter::ReceiveHit(
 
 	if (HitCard)
 	{
-		if (HitCard->CardType == ECardType::Card_Grow)
+		if (GEngine)
 		{
-			if (GEngine)
-				GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, TEXT("Grow"));
-			ItemInventory.Add(HitCard->CardType);
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, HitCard->TypeString() );
 		}
-
-		if (HitCard->CardType == ECardType::Card_Shrink)
-		{
-			if (GEngine)
-				GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, TEXT("Shrink"));
-			ItemInventory.Add(HitCard->CardType);
-		}
-
+		
+		ItemInventory.Add(HitCard->CardType);
 		HitCard->Destroy();
 	}
 }
@@ -359,6 +351,10 @@ void AFPSCharacter::InvLeft()
 			SelectedInventoryItem = ItemInventory.Num() - 1;
 		}
 
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, TypeString());
+		}
 	}
 }
 
@@ -375,5 +371,26 @@ void AFPSCharacter::InvRight()
 			SelectedInventoryItem = 0;
 		}
 
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, TypeString());
+		}
 	}
+}
+
+FString AFPSCharacter::TypeString()
+{
+	FString OutputString;
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Grow)
+	{
+		OutputString = "Grow";
+	}
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Shrink)
+	{
+		OutputString = "Shrink";
+	}
+
+	return OutputString;
 }

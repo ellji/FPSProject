@@ -8,8 +8,19 @@ ABlockState::ABlockState(const class FPostConstructInitializeProperties& PCIP)
 	: Super(PCIP)
 {
 	PrimaryActorTick.bCanEverTick = true;
+
 	this->CanJump = false;
 	this->JumpTimer = 0.0f;
+	this->JumpTimer = 5.0f;
+	this->JumpHeight = 10.0f;
+
+	this->ScaleAmount = 1.0f;
+
+	this->DoGrow = false;
+	this->GrowFactor = 1.33f;
+
+	this->DoShrink = false;
+	this->ShrinkFactor = 0.66f;
 }
 
 void ABlockState::BeginPlay()
@@ -66,6 +77,28 @@ void ABlockState::Tick(float DeltaTime)
 			}
 		}
 	}
+
+	if (DoGrow)
+	{
+		ScaleAmount += DeltaTime;
+		StaticMeshComponent->SetWorldScale3D(OriginalScale * ScaleAmount);
+		if (ScaleAmount >= GrowFactor)
+		{
+			DoGrow = false;
+			ScaleAmount = 1.0f;
+		}
+	}
+
+	if (DoShrink)
+	{
+		ScaleAmount -= DeltaTime;
+		StaticMeshComponent->SetWorldScale3D(OriginalScale * ScaleAmount);
+		if (ScaleAmount <= ShrinkFactor)
+		{
+			DoShrink = false;
+			ScaleAmount = 1.0f;
+		}
+	}
 }
 
 void ABlockState::ReceiveCard(ECardType::Type UsedCard)
@@ -76,9 +109,9 @@ void ABlockState::ReceiveCard(ECardType::Type UsedCard)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Magenta, TEXT("Grow"));
 		}
-
-		FVector oldScale = StaticMeshComponent->GetComponentScale();
-		StaticMeshComponent->SetWorldScale3D(oldScale * 1.7f);
+		
+		OriginalScale = StaticMeshComponent->GetComponentScale();
+		DoGrow = true;
 	}
 
 	if (UsedCard == ECardType::Card_Shrink)
@@ -87,5 +120,8 @@ void ABlockState::ReceiveCard(ECardType::Type UsedCard)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Magenta, TEXT("Shrink"));
 		}
+
+		OriginalScale = StaticMeshComponent->GetComponentScale();
+		DoShrink = true;
 	}
 }

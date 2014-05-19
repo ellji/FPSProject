@@ -40,3 +40,20 @@ void AAbilityCard::RotateAndBob(float DeltaTime)
 	NewLoc.Z += TranslateChange;
 	this->SetActorLocation(NewLoc, false);
 }
+
+FString AAbilityCard::TypeString()
+{
+	FString OutputString;
+
+	if (CardType.GetValue() == ECardType::Card_Grow)
+	{
+		OutputString = "Grow";
+	}
+
+	if (CardType.GetValue() == ECardType::Card_Shrink)
+	{
+		OutputString = "Shrink";
+	}
+	
+	return OutputString;
+}

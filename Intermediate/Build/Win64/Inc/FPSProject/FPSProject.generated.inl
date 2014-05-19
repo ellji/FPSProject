@@ -6,25 +6,25 @@
 ===========================================================================*/
 
 #ifndef FPSPROJECT_AbilityCard_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../FPSProject_New/Source/FPSProject/AbilityCard.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\AbilityCard.h"
 #endif
 #ifndef FPSPROJECT_Usable_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../FPSProject_New/Source/FPSProject/Usable.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\Usable.h"
 #endif
 #ifndef FPSPROJECT_BlockState_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../FPSProject_New/Source/FPSProject/BlockState.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\BlockState.h"
 #endif
 #ifndef FPSPROJECT_FPSCharacter_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../FPSProject_New/Source/FPSProject/FPSCharacter.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSCharacter.h"
 #endif
 #ifndef FPSPROJECT_FPSGameMode_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../FPSProject_New/Source/FPSProject/FPSGameMode.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSGameMode.h"
 #endif
 #ifndef FPSPROJECT_FPSHud_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../FPSProject_New/Source/FPSProject/FPSHud.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSHud.h"
 #endif
 #ifndef FPSPROJECT_FPSProjectile_generated_h
-	#include "C:/Users/Chris Hayward/Documents/Git/UnrealEngine/../FPSProject_New/Source/FPSProject/FPSProjectile.h"
+	#include "E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSProjectile.h"
 #endif
 	void AAbilityCard::StaticRegisterNativesAAbilityCard()
 	{
@@ -223,6 +223,8 @@
 			OuterClass->ClassFlags |= 0x00800080;
 
 
+			UProperty* NewProp_ShrinkFactor = new(OuterClass, TEXT("ShrinkFactor"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(ShrinkFactor, ABlockState), 0x0000000000000005);
+			UProperty* NewProp_GrowFactor = new(OuterClass, TEXT("GrowFactor"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(GrowFactor, ABlockState), 0x0000000000000005);
 			UProperty* NewProp_JumpHeight = new(OuterClass, TEXT("JumpHeight"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(JumpHeight, ABlockState), 0x0000000000000005);
 			UProperty* NewProp_TimeBetweenJumps = new(OuterClass, TEXT("TimeBetweenJumps"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(TimeBetweenJumps, ABlockState), 0x0000000000000005);
 			UProperty* NewProp_JumpTimer = new(OuterClass, TEXT("JumpTimer"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(JumpTimer, ABlockState), 0x0000000000000005);
@@ -236,6 +238,10 @@
 			MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Input"));
 			MetaData->SetValue(OuterClass, TEXT("IsBlueprintBase"), TEXT("true"));
 			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("BlockState.h"));
+			MetaData->SetValue(NewProp_ShrinkFactor, TEXT("Category"), TEXT("Abilities"));
+			MetaData->SetValue(NewProp_ShrinkFactor, TEXT("ModuleRelativePath"), TEXT("BlockState.h"));
+			MetaData->SetValue(NewProp_GrowFactor, TEXT("Category"), TEXT("Abilities"));
+			MetaData->SetValue(NewProp_GrowFactor, TEXT("ModuleRelativePath"), TEXT("BlockState.h"));
 			MetaData->SetValue(NewProp_JumpHeight, TEXT("Category"), TEXT("Abilities"));
 			MetaData->SetValue(NewProp_JumpHeight, TEXT("ModuleRelativePath"), TEXT("BlockState.h"));
 			MetaData->SetValue(NewProp_TimeBetweenJumps, TEXT("Category"), TEXT("Abilities"));
@@ -606,7 +612,7 @@
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/FPSProject")), false, false));
 			ReturnPackage->PackageFlags |= PKG_CompiledIn | 0x00000000;
 			FGuid Guid;
-			Guid.A = 0x1C70A923;
+			Guid.A = 0xD6F45420;
 			Guid.B = 0x2E49D72F;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
