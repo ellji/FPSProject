@@ -11,8 +11,8 @@ ABlockState::ABlockState(const class FPostConstructInitializeProperties& PCIP)
 
 	this->CanJump = false;
 	this->JumpTimer = 0.0f;
-	this->JumpTimer = 5.0f;
-	this->JumpHeight = 10.0f;
+	this->JumpHeight = 600.0f;
+	this->TimeBetweenJumps = 5.0f;
 
 	this->ScaleAmount = 1.0f;
 
@@ -123,5 +123,15 @@ void ABlockState::ReceiveCard(ECardType::Type UsedCard)
 
 		OriginalScale = StaticMeshComponent->GetComponentScale();
 		DoShrink = true;
+	}
+
+	if (UsedCard == ECardType::Card_Jump)
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Magenta, TEXT("Jump"));
+		}
+
+		CanJump = true;
 	}
 }

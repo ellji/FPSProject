@@ -54,6 +54,41 @@ FString AAbilityCard::TypeString()
 	{
 		OutputString = "Shrink";
 	}
+
+	if (CardType.GetValue() == ECardType::Card_Jump)
+	{
+		OutputString = "Jump";
+	}
+
+	if (CardType.GetValue() == ECardType::Card_Tangible)
+	{
+		OutputString = "Tangible";
+	}
+
+	if (CardType.GetValue() == ECardType::Card_Intangible)
+	{
+		OutputString = "Intangible";
+	}
+
+	if (CardType.GetValue() == ECardType::Card_Intensifier)
+	{
+		OutputString = "Intensifier";
+	}
+
+	if (CardType.GetValue() == ECardType::Card_Multiplier)
+	{
+		OutputString = "Multiplier";
+	}
+
+	if (CardType.GetValue() == ECardType::Card_Heavy)
+	{
+		OutputString = "Heavy";
+	}
+
+	if (CardType.GetValue() == ECardType::Card_Light)
+	{
+		OutputString = "Light";
+	}
 	
 	return OutputString;
 }

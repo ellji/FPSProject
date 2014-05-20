@@ -17,6 +17,14 @@ class AFPSHud : public AHUD
 		/** primary draw call for the hud */
 		virtual void DrawHUD() OVERRIDE;
 
+		//Called as soon as game starts, create SCompoundWidget and give Viewport access
+		void BeginPlay();
+
+		//Reference to an SCompoundWidget, TSharedPtr adds to the refcount of MyUIWidget
+		//MyUIWidget will not self-destruct as long as refcount > 0
+		//MyUIWidget refcount will be (refcout-1) if HUD is destroyed.
+		TSharedPtr<class SCardInvUIWidget> CardInvUIWidget;
+
 	private:
 		/** crosshair asset pointer */
 		UTexture2D* CrosshairTex;

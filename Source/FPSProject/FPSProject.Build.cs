@@ -11,7 +11,7 @@ public class FPSProject : ModuleRules
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
 		// Uncomment if you are using Slate UI
-		// PrivateDependencyModuleNames.Add("Slate");
+		PrivateDependencyModuleNames.Add("Slate");
 		
 		// Uncomment if you are using online features
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");

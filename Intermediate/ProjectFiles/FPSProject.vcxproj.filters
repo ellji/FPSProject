@@ -1,97 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<ItemGroup>
-		<None Include="..\..\FPSProject.uproject" />
-		<Filter Include="Source">
-			<UniqueIdentifier>{99EC0138-F8E7-49D1-91FE-9F8560AACF1A}</UniqueIdentifier>
-		</Filter>
-		<None Include="..\..\Source\FPSProject.Target.cs">
-			<Filter>Source</Filter>
-		</None >
-		<None Include="..\..\Source\FPSProjectEditor.Target.cs">
-			<Filter>Source</Filter>
-		</None >
-		<Filter Include="Config">
-			<UniqueIdentifier>{3A7D6887-88F2-4EFC-A8F4-1A3CB0AF68CF}</UniqueIdentifier>
-		</Filter>
-		<None Include="..\..\Config\DefaultEditorUserSettings.ini">
-			<Filter>Config</Filter>
-		</None >
-		<None Include="..\..\Config\DefaultEngine.ini">
-			<Filter>Config</Filter>
-		</None >
-		<None Include="..\..\Config\DefaultGame.ini">
-			<Filter>Config</Filter>
-		</None >
-		<None Include="..\..\Config\DefaultInput.ini">
-			<Filter>Config</Filter>
-		</None >
-		<Filter Include="Source\FPSProject">
-			<UniqueIdentifier>{5D1A2F1D-E549-4E31-835F-53776FE4664A}</UniqueIdentifier>
-		</Filter>
-		<ClCompile Include="..\..\Source\FPSProject\AbilityCard.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\AbilityCard.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\FPSProject\BlockState.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\BlockState.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\FPSProject\FPSCharacter.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\FPSCharacter.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\FPSProject\FPSGameMode.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\FPSGameMode.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\FPSProject\FPSHud.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\FPSHud.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<None Include="..\..\Source\FPSProject\FPSProject.Build.cs">
-			<Filter>Source\FPSProject</Filter>
-		</None >
-		<ClCompile Include="..\..\Source\FPSProject\FPSProject.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\FPSProject.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\FPSProject\FPSProjectile.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\FPSProjectile.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<ClCompile Include="..\..\Source\FPSProject\Usable.cpp">
-			<Filter>Source\FPSProject</Filter>
-		</ClCompile >
-		<ClInclude Include="..\..\Source\FPSProject\Usable.h">
-			<Filter>Source\FPSProject</Filter>
-		</ClInclude >
-		<Filter Include="Source\FPSProject\Resources">
-			<UniqueIdentifier>{EB59E95E-462A-4EEC-936A-8F970C893972}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="Source\FPSProject\Resources\Windows">
-			<UniqueIdentifier>{605A88D9-D002-4D32-A769-0570B88C9363}</UniqueIdentifier>
-		</Filter>
-		<None Include="..\..\Source\FPSProject\Resources\Windows\FPSProject.ico">
-			<Filter>Source\FPSProject\Resources\Windows</Filter>
-		</None >
-		<ResourceCompile Include="..\..\Source\FPSProject\Resources\Windows\FPSProject.rc">
-			<Filter>Source\FPSProject\Resources\Windows</Filter>
-		</ResourceCompile >
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\FPSProject.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{87E20481-06B9-4380-B492-AD8F6A98A495}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FPSProject.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\FPSProjectEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FDFC8E6D-7491-4131-8042-13EA9C37A76B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditorUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\FPSProject">
+      <UniqueIdentifier>{0D2BCAF3-E024-4D72-A912-EA21CF74A9F9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\FPSProject\AbilityCard.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\AbilityCard.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSProject\BlockState.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\BlockState.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSProject\FPSCharacter.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\FPSCharacter.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSProject\FPSGameMode.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\FPSGameMode.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSProject\FPSHud.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\FPSHud.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\FPSProject\FPSProject.Build.cs">
+      <Filter>Source\FPSProject</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\FPSProject\FPSProject.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\FPSProject.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSProject\FPSProjectile.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\FPSProjectile.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\FPSProject\Usable.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\FPSProject\Usable.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+    <Filter Include="Source\FPSProject\Resources">
+      <UniqueIdentifier>{5051DFDE-2B32-42B5-B40D-C5589F31ED7F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\FPSProject\Resources\Windows">
+      <UniqueIdentifier>{A659E81E-8C14-46FE-B6E6-1C50397E87DF}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\FPSProject\Resources\Windows\FPSProject.ico">
+      <Filter>Source\FPSProject\Resources\Windows</Filter>
+    </None>
+    <ResourceCompile Include="..\..\Source\FPSProject\Resources\Windows\FPSProject.rc">
+      <Filter>Source\FPSProject\Resources\Windows</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\FPSProject\CardInvUIWidget.cpp">
+      <Filter>Source\FPSProject</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\FPSProject\CardInvUIWidget.h">
+      <Filter>Source\FPSProject</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

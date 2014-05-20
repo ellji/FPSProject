@@ -392,5 +392,40 @@ FString AFPSCharacter::TypeString()
 		OutputString = "Shrink";
 	}
 
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Jump)
+	{
+		OutputString = "Jump";
+	}
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Tangible)
+	{
+		OutputString = "Tangible";
+	}
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Intangible)
+	{
+		OutputString = "Intangible";
+	}
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Intensifier)
+	{
+		OutputString = "Intensifier";
+	}
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Multiplier)
+	{
+		OutputString = "Multiplier";
+	}
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Heavy)
+	{
+		OutputString = "Heavy";
+	}
+
+	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Light)
+	{
+		OutputString = "Light";
+	}
+
 	return OutputString;
 }

@@ -5,7 +5,7 @@
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\SymbolDebugger.Target.cs" />
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\SymbolDebugger.Build.cs" />
 		<Filter Include="Private">
-			<UniqueIdentifier>{C3B46142-3C8C-4F43-8530-1D9CAAB1C591}</UniqueIdentifier>
+			<UniqueIdentifier>{429C8E23-6139-41BE-A11C-9EA48D4BD774}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\Private\SSymbolDebugger.cpp">
 			<Filter>Private</Filter>
@@ -23,28 +23,28 @@
 			<Filter>Private</Filter>
 		</ClCompile >
 		<Filter Include="Private\Mac">
-			<UniqueIdentifier>{6F36F13A-0EC5-40AB-B7C9-BC92E7B72728}</UniqueIdentifier>
+			<UniqueIdentifier>{5F526327-5F3D-4B9B-8CCB-453335117520}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\Private\Mac\SymbolDebuggerMainMac.cpp">
 			<Filter>Private\Mac</Filter>
 		</ClCompile >
 		<Filter Include="Private\Windows">
-			<UniqueIdentifier>{6CFB1D35-A0DD-4564-BE12-4C1037D40463}</UniqueIdentifier>
+			<UniqueIdentifier>{ED416D54-F390-42EA-8991-A3DDD92AA79F}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\Private\Windows\SymbolDebuggerMainWindows.cpp">
 			<Filter>Private\Windows</Filter>
 		</ClCompile >
 		<Filter Include="Public">
-			<UniqueIdentifier>{B99B8787-48E4-4561-B860-F2847A02BCA4}</UniqueIdentifier>
+			<UniqueIdentifier>{B55B880B-10D7-4181-A8E3-8E773D092BE3}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\Public\SymbolDebuggerApp.h">
 			<Filter>Public</Filter>
 		</ClInclude >
 		<Filter Include="Resources">
-			<UniqueIdentifier>{AB61F0AA-4E76-4228-8EE2-1CAF62F9735B}</UniqueIdentifier>
+			<UniqueIdentifier>{987C8765-47CE-434F-BFE4-74BB3BE413BB}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Resources\Windows">
-			<UniqueIdentifier>{24FD9DD7-0EE0-4218-9830-22D76C8DE428}</UniqueIdentifier>
+			<UniqueIdentifier>{7900BF55-E909-415D-8DCB-16B22F1CE702}</UniqueIdentifier>
 		</Filter>
 		<Manifest Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\Resources\Windows\Debug-PCLaunch-Win32.manifest">
 			<Filter>Resources\Windows</Filter>
