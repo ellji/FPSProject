@@ -35,6 +35,7 @@ class AAbilityCard : public AStaticMeshActor
 	public:
 		virtual void BeginPlay() OVERRIDE;
 		virtual void Tick(float DeltaTime) OVERRIDE;
+		FString GetCardEnumAsString(ECardType::Type EnumValue);
 		FString TypeString();
 
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card Type")

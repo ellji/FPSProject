@@ -353,7 +353,7 @@ void AFPSCharacter::InvLeft()
 
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, TypeString());
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, GetCardEnumAsString(ItemInventory[SelectedInventoryItem].GetValue()));
 		}
 	}
 }
@@ -373,59 +373,15 @@ void AFPSCharacter::InvRight()
 
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, TypeString());
+			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, GetCardEnumAsString(ItemInventory[SelectedInventoryItem].GetValue()));
 		}
 	}
 }
 
-FString AFPSCharacter::TypeString()
+FString AFPSCharacter::GetCardEnumAsString(ECardType::Type EnumValue)
 {
-	FString OutputString;
+	const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("ECardType"), true);
+	if (!EnumPtr) return "";
 
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Grow)
-	{
-		OutputString = "Grow";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Shrink)
-	{
-		OutputString = "Shrink";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Jump)
-	{
-		OutputString = "Jump";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Tangible)
-	{
-		OutputString = "Tangible";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Intangible)
-	{
-		OutputString = "Intangible";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Intensifier)
-	{
-		OutputString = "Intensifier";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Multiplier)
-	{
-		OutputString = "Multiplier";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Heavy)
-	{
-		OutputString = "Heavy";
-	}
-
-	if (ItemInventory[SelectedInventoryItem].GetValue() == ECardType::Card_Light)
-	{
-		OutputString = "Light";
-	}
-
-	return OutputString;
+	return EnumPtr->GetDisplayNameText(EnumValue).ToString();
 }

@@ -41,54 +41,15 @@ void AAbilityCard::RotateAndBob(float DeltaTime)
 	this->SetActorLocation(NewLoc, false);
 }
 
+FString AAbilityCard::GetCardEnumAsString(ECardType::Type EnumValue)
+{
+	const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("ECardType"), true);
+	if (!EnumPtr) return "";
+
+	return EnumPtr->GetDisplayNameText(EnumValue).ToString();
+}
+
 FString AAbilityCard::TypeString()
 {
-	FString OutputString;
-
-	if (CardType.GetValue() == ECardType::Card_Grow)
-	{
-		OutputString = "Grow";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Shrink)
-	{
-		OutputString = "Shrink";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Jump)
-	{
-		OutputString = "Jump";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Tangible)
-	{
-		OutputString = "Tangible";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Intangible)
-	{
-		OutputString = "Intangible";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Intensifier)
-	{
-		OutputString = "Intensifier";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Multiplier)
-	{
-		OutputString = "Multiplier";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Heavy)
-	{
-		OutputString = "Heavy";
-	}
-
-	if (CardType.GetValue() == ECardType::Card_Light)
-	{
-		OutputString = "Light";
-	}
-	
-	return OutputString;
+	return GetCardEnumAsString(CardType.GetValue());
 }

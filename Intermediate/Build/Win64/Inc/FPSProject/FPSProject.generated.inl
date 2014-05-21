@@ -73,6 +73,8 @@
 	ENGINE_API class UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AGameMode();
 	ENGINE_API class UClass* Z_Construct_UClass_AHUD();
+	ENGINE_API class UClass* Z_Construct_UClass_UFont_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_UEngineTypes_FHitResult();
 	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
@@ -524,12 +526,26 @@
 			OuterClass->ClassFlags |= 0x0080028C;
 
 
+			UProperty* NewProp_PlayerController = new(OuterClass, TEXT("PlayerController"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(PlayerController, AFPSHud), 0x0000000000000005, Z_Construct_UClass_AFPSCharacter_NoRegister());
+			UProperty* NewProp_TextFont = new(OuterClass, TEXT("TextFont"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(TextFont, AFPSHud), 0x0000000000000005, Z_Construct_UClass_UFont_NoRegister());
+			UProperty* NewProp_UICardTexAtlas = new(OuterClass, TEXT("UICardTexAtlas"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(UICardTexAtlas, AFPSHud), 0x0000000000000005);
+			UProperty* NewProp_UICardTexAtlas_Inner = new(NewProp_UICardTexAtlas, TEXT("UICardTexAtlas"), RF_Public|RF_Transient|RF_Native) UObjectProperty(FPostConstructInitializeProperties(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UClass_UTexture2D_NoRegister());
+			UProperty* NewProp_CrosshairTex = new(OuterClass, TEXT("CrosshairTex"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(CrosshairTex, AFPSHud), 0x0000000000000005, Z_Construct_UClass_UTexture2D_NoRegister());
 			OuterClass->ClassConfigName = FName(TEXT("Game"));
 			OuterClass->StaticLink();
 #if WITH_METADATA
 			UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
 			MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Rendering Actor Input Replication"));
 			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_PlayerController, TEXT("Category"), TEXT("Player"));
+			MetaData->SetValue(NewProp_PlayerController, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_TextFont, TEXT("Category"), TEXT("Font"));
+			MetaData->SetValue(NewProp_TextFont, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_UICardTexAtlas, TEXT("Category"), TEXT("Textures"));
+			MetaData->SetValue(NewProp_UICardTexAtlas, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_CrosshairTex, TEXT("Category"), TEXT("Textures"));
+			MetaData->SetValue(NewProp_CrosshairTex, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_CrosshairTex, TEXT("ToolTip"), TEXT("crosshair asset pointer"));
 #endif
 		}
 		check(OuterClass->GetClass());
@@ -612,7 +628,7 @@
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/FPSProject")), false, false));
 			ReturnPackage->PackageFlags |= PKG_CompiledIn | 0x00000000;
 			FGuid Guid;
-			Guid.A = 0xD6F45420;
+			Guid.A = 0x5F83AF7E;
 			Guid.B = 0x2E49D72F;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;

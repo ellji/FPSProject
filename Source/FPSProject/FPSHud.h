@@ -3,6 +3,8 @@
 #pragma once
 
 #include "GameFramework/HUD.h"
+#include "FPSCharacter.h"
+#include "AbilityCard.h"
 #include "FPSHud.generated.h"
 
 /**
@@ -25,7 +27,21 @@ class AFPSHud : public AHUD
 		//MyUIWidget refcount will be (refcout-1) if HUD is destroyed.
 		TSharedPtr<class SCardInvUIWidget> CardInvUIWidget;
 
-	private:
 		/** crosshair asset pointer */
-		UTexture2D* CrosshairTex;
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Textures")
+			UTexture2D* CrosshairTex;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Textures")
+			TArray<UTexture2D*> UICardTexAtlas;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Font")
+			UFont* TextFont;
+		
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player")
+			AFPSCharacter* PlayerController;
+
+	private:
+
+		void DrawCrosshair();
+		void DrawCard(ECardType::Type CardType, FVector2D Position);
 };

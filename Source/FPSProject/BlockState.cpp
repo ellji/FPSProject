@@ -62,13 +62,14 @@ void ABlockState::Tick(float DeltaTime)
 			JumpTimer = 0.0f;
 
 			FBodyInstance* BodyInst = StaticMeshComponent->GetBodyInstance();
-			
+
 			if (!BodyInst)
 			{
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, TEXT("Can't find body instance"));
 				return;
 			}
 
+			BodyInst->AngularDamping = 100.0f;
 			BodyInst->AddImpulse(FVector(0, 0, JumpHeight), true);
 
 			if (GEngine)

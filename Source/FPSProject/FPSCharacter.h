@@ -70,6 +70,7 @@ class AFPSCharacter : public ACharacter
 
 		bool DoTrace(FVector Start, FVector End, FHitResult* RV_Hit, FCollisionQueryParams* RV_TraceParams);
 		void StandingOn();
+		FString GetCardEnumAsString(ECardType::Type EnumValue);
 
 		//handles moving forward/backward
 		UFUNCTION()

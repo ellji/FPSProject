@@ -9,36 +9,62 @@ AFPSHud::AFPSHud(const class FPostConstructInitializeProperties& PCIP)
 	: Super(PCIP)
 {
 	// set the crosshair texture
-	static ConstructorHelpers::FObjectFinder<UTexture2D> CrosshairTexObj(TEXT("Texture2D'/Game/UI/crosshair.crosshair'"));
+	static ConstructorHelpers::FObjectFinder<UTexture2D> CrosshairTexObj(TEXT("Texture2D'/Game/UI/Textures/crosshair.crosshair'"));
 	CrosshairTex = CrosshairTexObj.Object;
+
+	static ConstructorHelpers::FObjectFinder<UTexture2D> GrowTexObj(TEXT("Texture2D'/Game/UI/Textures/gui_card_grow.gui_card_grow'"));
+	UICardTexAtlas.Add(GrowTexObj.Object);
+
+	static ConstructorHelpers::FObjectFinder<UTexture2D> ShrinkTexObj(TEXT("Texture2D'/Game/UI/Textures/gui_card_shrink.gui_card_shrink'"));
+	UICardTexAtlas.Add(ShrinkTexObj.Object);
+
+	static ConstructorHelpers::FObjectFinder<UTexture2D> JumpTexObj(TEXT("Texture2D'/Game/UI/Textures/card_jump.card_jump'"));
+	UICardTexAtlas.Add(JumpTexObj.Object);
 }
 
 void AFPSHud::BeginPlay()
 {
-	// So far only TSharedPtr<SCardInvUIWidget> has been created, now create the actual object
-	// Create a SCardInvUIWidget on heap, our CardInvUIWidget shared pointer provides a handle to object
-	// widget will not self-destruct unless the hud's sharedptr (and all other sharedptrs) destruct first
-	SAssignNew(CardInvUIWidget, SCardInvUIWidget).OwnerHUD(this);
-
-	// pass our viewport a weak ptr to our widget
-	if (GEngine->IsValidLowLevel())
+	if (GetOwningPlayerController() != NULL)
 	{
-		GEngine->GameViewport->
-			// viewport's weak ptr will not give viewport ownership of widget
-			AddViewportWidgetContent(SNew(SWeakWidget).PossiblyNullContent(CardInvUIWidget.ToSharedRef()));
+		PlayerController = Cast<AFPSCharacter>(GetOwningPlayerController()->GetPawn());
 	}
 
-	if (CardInvUIWidget.IsValid())
-	{
-		// set widget's properties as visible (sets child widget properties recursively
-		CardInvUIWidget->SetVisibility(EVisibility::Visible);
-	}
+	//// So far only TSharedPtr<SCardInvUIWidget> has been created, now create the actual object
+	//// Create a SCardInvUIWidget on heap, our CardInvUIWidget shared pointer provides a handle to object
+	//// widget will not self-destruct unless the hud's sharedptr (and all other sharedptrs) destruct first
+	//SAssignNew(CardInvUIWidget, SCardInvUIWidget).OwnerHUD(this);
+
+	//// pass our viewport a weak ptr to our widget
+	//if (GEngine->IsValidLowLevel())
+	//{
+	//	GEngine->GameViewport->
+	//		// viewport's weak ptr will not give viewport ownership of widget
+	//		AddViewportWidgetContent(SNew(SWeakWidget).PossiblyNullContent(CardInvUIWidget.ToSharedRef()));
+	//}
+
+	//if (CardInvUIWidget.IsValid())
+	//{
+	//	// set widget's properties as visible (sets child widget properties recursively
+	//	CardInvUIWidget->SetVisibility(EVisibility::Visible);
+	//}
 }
 
 void AFPSHud::DrawHUD()
 {
 	Super::DrawHUD();
 
+	if (!Canvas) return;
+
+	DrawCrosshair();
+
+	if (PlayerController->ItemInventory.IsValidIndex(PlayerController->SelectedInventoryItem))
+	{
+		DrawCard(PlayerController->ItemInventory[PlayerController->SelectedInventoryItem].GetValue(), FVector2D(100.0f, 100.0f));
+	}
+}
+
+void AFPSHud::DrawCrosshair()
+{
 	// draw simple crosshair
 	// in the middle of the screen
 	const FVector2D Center(Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
@@ -51,5 +77,41 @@ void AFPSHud::DrawHUD()
 	TileItem.BlendMode = SE_BLEND_Translucent;
 	Canvas->DrawItem(TileItem);
 }
+
+void AFPSHud::DrawCard(ECardType::Type CardType, FVector2D Position)
+{
+	int32 Card = 0;
+
+	switch (CardType)
+	{
+		case ECardType::Card_Grow:
+			Card = 0; break;
+		case ECardType::Card_Shrink:
+			Card = 1; break;
+		case ECardType::Card_Jump:
+			Card = 2; break;
+		default:
+			Card = 0;
+	}
+
+	//Text and Font
+	FCanvasTextItem NewText(
+		FVector2D(10.0f, 100.0f),
+		FText::FromString("Hello"),
+		TextFont,
+		FColor::Red
+		);
+
+	NewText.bOutlined = true;
+	NewText.OutlineColor = FColor::Black;
+	NewText.OutlineColor.A = FColor::Red.A * 2;
+
+	Canvas->DrawItem(NewText);
+
+	FCanvasTileItem TileItem(Position, UICardTexAtlas[Card]->Resource, FLinearColor::White);
+	TileItem.BlendMode = SE_BLEND_Translucent;
+	Canvas->DrawItem(TileItem);
+}
+
 
 
