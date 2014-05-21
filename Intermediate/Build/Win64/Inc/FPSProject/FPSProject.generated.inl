@@ -526,6 +526,9 @@
 			OuterClass->ClassFlags |= 0x0080028C;
 
 
+			UProperty* NewProp_HighlightScale = new(OuterClass, TEXT("HighlightScale"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(HighlightScale, AFPSHud), 0x0000000000000005);
+			UProperty* NewProp_BottomInset = new(OuterClass, TEXT("BottomInset"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(BottomInset, AFPSHud), 0x0000000000000005);
+			UProperty* NewProp_LeftInset = new(OuterClass, TEXT("LeftInset"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(LeftInset, AFPSHud), 0x0000000000000005);
 			UProperty* NewProp_PlayerController = new(OuterClass, TEXT("PlayerController"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(PlayerController, AFPSHud), 0x0000000000000005, Z_Construct_UClass_AFPSCharacter_NoRegister());
 			UProperty* NewProp_TextFont = new(OuterClass, TEXT("TextFont"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(TextFont, AFPSHud), 0x0000000000000005, Z_Construct_UClass_UFont_NoRegister());
 			UProperty* NewProp_UICardTexAtlas = new(OuterClass, TEXT("UICardTexAtlas"), RF_Public|RF_Transient|RF_Native) UArrayProperty(CPP_PROPERTY_BASE(UICardTexAtlas, AFPSHud), 0x0000000000000005);
@@ -537,6 +540,12 @@
 			UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
 			MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Rendering Actor Input Replication"));
 			MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_HighlightScale, TEXT("Category"), TEXT("Card Margin"));
+			MetaData->SetValue(NewProp_HighlightScale, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_BottomInset, TEXT("Category"), TEXT("Card Margin"));
+			MetaData->SetValue(NewProp_BottomInset, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
+			MetaData->SetValue(NewProp_LeftInset, TEXT("Category"), TEXT("Card Margin"));
+			MetaData->SetValue(NewProp_LeftInset, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
 			MetaData->SetValue(NewProp_PlayerController, TEXT("Category"), TEXT("Player"));
 			MetaData->SetValue(NewProp_PlayerController, TEXT("ModuleRelativePath"), TEXT("FPSHud.h"));
 			MetaData->SetValue(NewProp_TextFont, TEXT("Category"), TEXT("Font"));
@@ -628,7 +637,7 @@
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/FPSProject")), false, false));
 			ReturnPackage->PackageFlags |= PKG_CompiledIn | 0x00000000;
 			FGuid Guid;
-			Guid.A = 0x5F83AF7E;
+			Guid.A = 0xEF4FFCFB;
 			Guid.B = 0x2E49D72F;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;

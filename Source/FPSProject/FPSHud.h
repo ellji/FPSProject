@@ -40,9 +40,19 @@ class AFPSHud : public AHUD
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player")
 			AFPSCharacter* PlayerController;
 
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card Margin")
+			float LeftInset;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card Margin")
+			float BottomInset;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card Margin")
+			float HighlightScale;
+
 	private:
 
 		void DrawCrosshair();
-		void DrawCard(ECardType::Type CardType, FVector2D Position);
+		void DrawInventory();
+		void DrawCard(ECardType::Type CardType, FVector2D Position, FVector2D Scale);
 		void DrawTextString();
 };

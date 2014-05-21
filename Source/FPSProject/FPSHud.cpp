@@ -20,6 +20,10 @@ AFPSHud::AFPSHud(const class FPostConstructInitializeProperties& PCIP)
 
 	static ConstructorHelpers::FObjectFinder<UTexture2D> JumpTexObj(TEXT("Texture2D'/Game/UI/Textures/card_jump.card_jump'"));
 	UICardTexAtlas.Add(JumpTexObj.Object);
+
+	LeftInset = 20.0f;
+	BottomInset = 150.0f;
+	HighlightScale = 1.2f;
 }
 
 void AFPSHud::BeginPlay()
@@ -56,11 +60,7 @@ void AFPSHud::DrawHUD()
 	if (!Canvas) return;
 
 	DrawCrosshair();
-
-	if (PlayerController->ItemInventory.IsValidIndex(PlayerController->SelectedInventoryItem))
-	{
-		DrawCard(PlayerController->ItemInventory[PlayerController->SelectedInventoryItem].GetValue(), FVector2D(100.0f, 100.0f));
-	}
+	DrawInventory();
 }
 
 void AFPSHud::DrawCrosshair()
@@ -78,26 +78,46 @@ void AFPSHud::DrawCrosshair()
 	Canvas->DrawItem(TileItem);
 }
 
-void AFPSHud::DrawCard(ECardType::Type CardType, FVector2D Position)
+void AFPSHud::DrawInventory()
 {
-	int32 Card = 0;
+	FVector2D CardScale = FVector2D(1.0f, 1.0f);
 
-	switch (CardType)
+	for (int32 i = 0; i < PlayerController->ItemInventory.Num(); i++)
 	{
-		case ECardType::Card_Grow:
-			Card = 0; break;
-		case ECardType::Card_Shrink:
-			Card = 1; break;
-		case ECardType::Card_Jump:
-			Card = 2; break;
-		default:
-			Card = 0;
+		// get the card type to draw
+		ECardType::Type CardType = PlayerController->ItemInventory[i].GetValue();
+
+		CardScale.X = UICardTexAtlas[CardType]->GetSurfaceWidth() * 0.2f;
+		CardScale.Y = UICardTexAtlas[CardType]->GetSurfaceHeight() * 0.2f;
+		
+		FVector2D CardPosition = FVector2D(
+			LeftInset + (i * UICardTexAtlas[CardType]->GetSurfaceWidth() * 0.2f),
+			Canvas->ClipY - BottomInset);
+
+		// make the card larger if it's the selected card
+		if (i == PlayerController->SelectedInventoryItem)
+		{
+			// move the card up because it's selected
+			CardPosition.Y = CardPosition.Y - ((CardScale.Y * HighlightScale) - CardScale.Y);
+
+			CardScale.X = CardScale.X * HighlightScale;
+			CardScale.Y = CardScale.Y * HighlightScale;
+		}
+		else if (i > PlayerController->SelectedInventoryItem)
+		{
+			CardPosition.X = CardPosition.X + (CardScale.X - (CardScale.X / HighlightScale));
+		}
+
+		DrawCard(CardType, CardPosition, CardScale);
+		
+		//reset
+		CardScale = FVector2D(1.0f, 1.0f);
 	}
+}
 
-	float const TextureDrawWidth = UICardTexAtlas[Card]->GetSurfaceWidth() * 0.2f;
-	float const TextureDrawHeight = UICardTexAtlas[Card]->GetSurfaceHeight() * 0.2f;
-
-	FCanvasTileItem TileItem(Position, UICardTexAtlas[Card]->Resource, FVector2D(TextureDrawWidth, TextureDrawHeight), FLinearColor::White);
+void AFPSHud::DrawCard(ECardType::Type CardType, FVector2D Position, FVector2D Scale)
+{
+	FCanvasTileItem TileItem(Position, UICardTexAtlas[CardType]->Resource, Scale, FLinearColor::White);
 	TileItem.BlendMode = SE_BLEND_Translucent;
 	Canvas->DrawItem(TileItem);
 }

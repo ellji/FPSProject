@@ -16,11 +16,12 @@ ABlockState::ABlockState(const class FPostConstructInitializeProperties& PCIP)
 
 	this->ScaleAmount = 1.0f;
 
+	// these factors are roughly right to reverse each other
 	this->DoGrow = false;
-	this->GrowFactor = 1.33f;
+	this->GrowFactor = 1.285f;
 
 	this->DoShrink = false;
-	this->ShrinkFactor = 0.66f;
+	this->ShrinkFactor = 0.785f;
 }
 
 void ABlockState::BeginPlay()
