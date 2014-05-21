@@ -44,4 +44,5 @@ class AFPSHud : public AHUD
 
 		void DrawCrosshair();
 		void DrawCard(ECardType::Type CardType, FVector2D Position);
+		void DrawTextString();
 };

@@ -94,6 +94,16 @@ void AFPSHud::DrawCard(ECardType::Type CardType, FVector2D Position)
 			Card = 0;
 	}
 
+	float const TextureDrawWidth = UICardTexAtlas[Card]->GetSurfaceWidth() * 0.2f;
+	float const TextureDrawHeight = UICardTexAtlas[Card]->GetSurfaceHeight() * 0.2f;
+
+	FCanvasTileItem TileItem(Position, UICardTexAtlas[Card]->Resource, FVector2D(TextureDrawWidth, TextureDrawHeight), FLinearColor::White);
+	TileItem.BlendMode = SE_BLEND_Translucent;
+	Canvas->DrawItem(TileItem);
+}
+
+void AFPSHud::DrawTextString()
+{
 	//Text and Font
 	FCanvasTextItem NewText(
 		FVector2D(10.0f, 100.0f),
@@ -107,10 +117,6 @@ void AFPSHud::DrawCard(ECardType::Type CardType, FVector2D Position)
 	NewText.OutlineColor.A = FColor::Red.A * 2;
 
 	Canvas->DrawItem(NewText);
-
-	FCanvasTileItem TileItem(Position, UICardTexAtlas[Card]->Resource, FLinearColor::White);
-	TileItem.BlendMode = SE_BLEND_Translucent;
-	Canvas->DrawItem(TileItem);
 }
 
 
