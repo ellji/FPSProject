@@ -2,6 +2,4 @@
 
 #include "FPSProject.h"
 
-#include "FPSProject.generated.inl"
-
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, FPSProject, "FPSProject" );

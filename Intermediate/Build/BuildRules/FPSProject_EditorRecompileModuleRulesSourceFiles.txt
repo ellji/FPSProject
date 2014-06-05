@@ -9,6 +9,7 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Android\Androi
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\AssetTools\AssetTools.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\AudioFormatADPCM\AudioFormatADPCM.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\AudioFormatOgg\AudioFormatOgg.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\AudioFormatOpus\AudioFormatOpus.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\AutomationController\AutomationController.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\AutomationWindow\AutomationWindow.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\BlankModule\BlankModule.Build.cs
@@ -31,10 +32,13 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Internationali
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\iOS\IOSPlatformEditor\IOSPlatformEditor.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\iOS\IOSTargetPlatform\IOSTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\LauncherServices\LauncherServices.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Linux\LinuxNoEditorTargetPlatform\LinuxNoEditorTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Linux\LinuxServerTargetPlatform\LinuxServerTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Linux\LinuxTargetPlatform\LinuxTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\LogVisualizer\LogVisualizer.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Mac\MacClientTargetPlatform\MacClientTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Mac\MacNoEditorTargetPlatform\MacNoEditorTargetPlatform.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Mac\MacServerTargetPlatform\MacServerTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Mac\MacTargetPlatform\MacTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\MeshBoneReduction\MeshBoneReduction.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\MeshSimplifier\MeshSimplifier.Build.cs
@@ -63,6 +67,8 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\ShaderFormatOp
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\ShaderPreprocessor\ShaderPreprocessor.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\SharedSettingsWidgets\SharedSettingsWidgets.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\SimplygonMeshReduction\SimplygonMeshReduction.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\SlateReflector\SlateReflector.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\SourceCodeAccess\SourceCodeAccess.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\SourceControl\SourceControl.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\StandaloneRenderer\StandaloneRenderer.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\SynthBenchmark\SynthBenchmark.Build.cs
@@ -76,12 +82,12 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\TextureFormatP
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\TextureFormatUncompressed\TextureFormatUncompressed.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Toolbox\Toolbox.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Windows\ShaderFormatD3D\ShaderFormatD3D.Build.cs
-C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Windows\VSAccessor\VSAccessor.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Windows\WindowsClientTargetPlatform\WindowsClientTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Windows\WindowsNoEditorTargetPlatform\WindowsNoEditorTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Windows\WindowsServerTargetPlatform\WindowsServerTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\Windows\WindowsTargetPlatform\WindowsTargetPlatform.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Developer\XmlParser\XmlParser.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\ActorPickerMode\ActorPickerMode.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\AnimGraph\AnimGraph.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\BehaviorTreeEditor\BehaviorTreeEditor.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\BlueprintGraph\BlueprintGraph.Build.cs
@@ -148,6 +154,7 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\TaskBrowser\TaskB
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\TextureAlignMode\TextureAlignMode.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\TextureEditor\TextureEditor.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\TranslationEditor\TranslationEditor.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\UMGEditor\UMGEditor.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\UndoHistory\UndoHistory.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\UnrealEd\UnrealEd.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Editor\UnrealEdMessages\UnrealEdMessages.Build.cs
@@ -169,6 +176,9 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderToo
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealLightmass\UnrealLightmass.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealPak\UnrealPak.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealVersionSelector\UnrealVersionSelector.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Advertising\Advertising\Advertising.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Advertising\Android\AndroidAdvertising\AndroidAdvertising.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Advertising\IOS\IOSAdvertising\IOSAdvertising.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Analytics\Analytics\Analytics.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Analytics\AnalyticsET\AnalyticsET.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Analytics\AnalyticsMulticast\AnalyticsMulticast.Build.cs
@@ -193,6 +203,7 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\InputDevice\Inpu
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\IOS\IOSAudio\IOSAudio.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\IOS\IOSRuntimeSettings\IOSRuntimeSettings.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\IOS\LaunchDaemonMessages\LaunchDaemonMessages.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\IPC\IPC.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\JsonUtilities\JsonUtilities.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Launch\Launch.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\LauncherAutomatedService\LauncherAutomatedService.Build.cs
@@ -207,6 +218,7 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\NetworkFile\Netw
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\NetworkFileSystem\NetworkFileSystem.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Networking\Networking.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\NullDrv\NullDrv.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Online\Android\OnlineSubsystemGooglePlay\OnlineSubsystemGooglePlay.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Online\HTTP\HTTP.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Online\IOS\OnlineSubsystemIOS\OnlineSubsystemIOS.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Online\OnlineSubsystem\OnlineSubsystem.Build.cs
@@ -226,10 +238,13 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\SandboxFile\Sand
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\ShaderCore\ShaderCore.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\SkillSystem\SkillSystem.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Slate\Slate.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\SlateCore\SlateCore.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\SlateRHIRenderer\SlateRHIRenderer.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Sockets\Sockets.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\StreamingFile\StreamingFile.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\StreamingPauseRendering\StreamingPauseRendering.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\UE4Game\UE4Game.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\UMG\UMG.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\VectorVM\VectorVM.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Windows\D3D11RHI\D3D11RHI.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Runtime\Windows\XAudio2\XAudio2.Build.cs
@@ -252,12 +267,14 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\libJPG\UElibJ
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\libOpus\libOpus.build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\libPNG\UElibPNG.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\MCPP\MCPP.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\NVIDIA\nvapi\NVAPI.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\nvTextureTools\nvTextureTools.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\nvTriStrip\nvTriStrip.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\Oculus\LibOVR.build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\Ogg\UEOgg.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\OpenAL\OpenAL.build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\OpenGL\OpenGL.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\OpenSSL\OpenSSL.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\Perforce\Perforce.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\PhysX\APEX.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\ThirdParty\PhysX\PhysX.Build.cs
@@ -284,6 +301,8 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Developer\BlankPlugin\S
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Developer\PerforceSourceControl\Source\PerforceSourceControl\PerforceSourceControl.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Developer\SubversionSourceControl\Source\SubversionSourceControl\SubversionSourceControl.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Developer\UObjectPlugin\Source\UObjectPlugin\UObjectPlugin.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Developer\VisualStudioSourceCodeAccess\Source\VisualStudioSourceCodeAccess\VisualStudioSourceCodeAccess.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Developer\XCodeSourceCodeAccess\Source\XCodeSourceCodeAccess\XCodeSourceCodeAccess.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Editor\EpicSurvey\Source\EpicSurvey\EpicSurvey.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Editor\IntroTutorials\Source\IntroTutorials\IntroTutorials.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Editor\PluginsEditor\Source\PluginsEditor\PluginsEditor.Build.cs
@@ -296,11 +315,10 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Experimental\Paper2D\So
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Experimental\Paper2D\Source\PaperJsonImporter\PaperJsonImporter.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Experimental\Paper2D\Source\SmartSnapping\SmartSnapping.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Experimental\Phya\Source\Phya\Phya.Build.cs
-C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Experimental\SlateComponentWrappers\Source\SCWEditor\SCWEditor.Build.cs
-C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Experimental\SlateComponentWrappers\Source\SCWRuntime\SCWRuntime.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Messaging\MessagingDebugger\Source\MessagingDebugger\MessagingDebugger.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Messaging\UdpMessaging\Source\UdpMessaging\UdpMessaging.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\OculusRift\Source\OculusRift\OculusRift.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\Advertising\IOSTapJoy\Source\IOSTapJoy\IOSTapJoy.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\AndroidDeviceProfileSelector\Source\AndroidDeviceProfileSelector\AndroidDeviceProfileSelector.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\AppleMoviePlayer\Source\AppleMoviePlayer\AppleMoviePlayer.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\CableComponent\Source\CableComponent\CableComponent.Build.cs
@@ -311,6 +329,10 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\LiveEditorListe
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\SoundVisualizations\Source\SoundVisualizations\SoundVisualizations.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\WindowsDeviceProfileSelector\Source\WindowsDeviceProfileSelector\WindowsDeviceProfileSelector.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\WindowsMoviePlayer\Source\WindowsMoviePlayer\WindowsMoviePlayer.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Script\ScriptEditorPlugin\Source\ScriptEditorPlugin\ScriptEditorPlugin.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Script\ScriptGeneratorPlugin\Source\ScriptGeneratorPlugin\ScriptGeneratorPlugin.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Script\ScriptPlugin\Source\ScriptPlugin\ScriptPlugin.Build.cs
+C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Plugins\Slate\SlateRemote\Source\SlateRemote\SlateRemote.Build.cs
 E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject\FPSProject.Build.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\UE4Client.Target.cs
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\UE4Editor.Target.cs
@@ -332,27 +354,5 @@ C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealPak\Unrea
 C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealVersionSelector\UnrealVersionSelector.Target.cs
 E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProject.Target.cs
 E:\Users\Chris\My Documents\Git\FPSProject\Source\FPSProjectEditor.Target.cs
-\SoundVisualizations\Source\SoundVisualizations\SoundVisualizations.Build.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\WindowsDeviceProfileSelector\Source\WindowsDeviceProfileSelector\WindowsDeviceProfileSelector.Build.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Plugins\Runtime\WindowsMoviePlayer\Source\WindowsMoviePlayer\WindowsMoviePlayer.Build.cs
-C:\Users\Chris Hayward\Documents\Git\FPSProject_New\Source\FPSProject\FPSProject.Build.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\UE4Client.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\UE4Editor.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\UE4Game.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\UE4Server.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\BlankProgram\BlankProgram.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\CrashReportClient\CrashReportClient.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\MinidumpDiagnostics.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\Mac\UE4EditorServices\UE4EditorServices.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\ShaderCompileWorker\ShaderCompileWorker.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\SlateViewer\SlateViewer.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\SymbolDebugger\SymbolDebugger.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFileServer\UnrealFileServer.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\UnrealFrontend.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealHeaderTool\UnrealHeaderTool.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealLightmass\UnrealLightmass.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealPak\UnrealPak.Target.cs
-C:\Users\Chris Hayward\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealVersionSelector\UnrealVersionSelector.Target.cs
-C:\Users\Chris Hayward\Documents\Git\FPSProject_New\Source\FPSProject.Target.cs
+
 C:\Users\Chris Hayward\Documents\Git\FPSProject_New\Source\FPSProjectEditor.Target.cs

@@ -79,51 +79,52 @@ void AFPSCharacter::Tick(float DeltaTime)
 
 	if (!DidTrace)
 	{
-		if (GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Red, "Didn't hit");
+		//if (GEngine)
+		//	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Red, "Didn't hit");
 
 		//End = CameraLoc + (CameraRot.Vector() * PlayerInteractionDistance);
 	}
 	else
 	{
-		if (GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Green, "Hit");
+		//if (GEngine)
+		//	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Green, "Hit");
 
 		End = RV_Hit.Location;
 	}
 
-	DrawDebugLine(GetWorld(),
-		Start + FVector(0, 0, -10),
-		End,
-		FColor(255, 0, 0),
-		false, -1, 0,
-		5.0f);
+	//DrawDebugLine(GetWorld(),
+	//	Start + FVector(0, 0, -10),
+	//	End,
+	//	FColor(255, 0, 0),
+	//	false, -1, 0,
+	//	5.0f);
 
-	DrawDebugSphere(GetWorld(),
-		End,
-		10.0f,
-		16,
-		FColor(255, 0, 0));
+	//DrawDebugSphere(GetWorld(),
+	//	End,
+	//	10.0f,
+	//	16,
+	//	FColor(255, 0, 0));
 
 	if (PhysicsHandleComponent.IsValid())
 	{
 		FVector PhysHandleLoc = FVector::ZeroVector;
 		FRotator PhysHandleRot = FRotator::ZeroRotator;
 		PhysicsHandleComponent->GetTargetLocationAndRotation(PhysHandleLoc, PhysHandleRot);
-		DrawDebugSphere(GetWorld(),
+		
+		/*DrawDebugSphere(GetWorld(),
 			PhysHandleLoc,
 			20.0f,
 			16,
-			FColor(0, 255, 0));
+			FColor(0, 255, 0));*/
 
-		if (GEngine)
-		{
-			FString Debug = "Handle Off";
-			if (PhysicsHandleComponent->IsActive())
-				FString Debug = "Handle On";
-			
-			GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Magenta, Debug);
-		}
+		//if (GEngine)
+		//{
+		//	FString Debug = "Handle Off";
+		//	if (PhysicsHandleComponent->IsActive())
+		//		FString Debug = "Handle On";
+		//	
+		//	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Magenta, Debug);
+		//}
 
 		if (BlockGrabbed)
 		{
@@ -132,7 +133,7 @@ void AFPSCharacter::Tick(float DeltaTime)
 
 			if (Pickup && Pickup != Standing)
 			{
-				GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Green, "BlockGrabbed && Pickup");
+				/*GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Green, "BlockGrabbed && Pickup");*/
 
 				FRotator CurrentRotation = Pickup->GetActorRotation();
 				FRotator NewRotation = FRotator(CurrentRotation.Pitch, CameraRot.Yaw, CurrentRotation.Roll);
@@ -217,10 +218,10 @@ void AFPSCharacter::OnUse()
 			// see what we're standing on
 		StandingOn();
 
-		if (Standing)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, Standing->GetHumanReadableName());
-		}
+		//if (Standing)
+		//{
+		//	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, Standing->GetHumanReadableName());
+		//}
 
 		// get the camera transform
 		FVector CameraLoc;
@@ -299,18 +300,18 @@ void AFPSCharacter::StandingOn()
 
 	Standing = Cast<ABlockState>(RV_Hit.GetActor());
 
-	DrawDebugLine(GetWorld(),
-		CurrentLocation,
-		CurrentLocation - (CurrentUp * 120.0f),
-		FColor(0, 0, 255),
-		false, -1, 0,
-		5.0f);
+	//DrawDebugLine(GetWorld(),
+	//	CurrentLocation,
+	//	CurrentLocation - (CurrentUp * 120.0f),
+	//	FColor(0, 0, 255),
+	//	false, -1, 0,
+	//	5.0f);
 
-	DrawDebugSphere(GetWorld(),
-		CurrentLocation - (CurrentUp * 120.0f),
-		10.0f,
-		16,
-		FColor(0, 0, 255));
+	//DrawDebugSphere(GetWorld(),
+	//	CurrentLocation - (CurrentUp * 120.0f),
+	//	10.0f,
+	//	16,
+	//	FColor(0, 0, 255));
 }
 
 void AFPSCharacter::ReceiveHit(
@@ -328,10 +329,10 @@ void AFPSCharacter::ReceiveHit(
 
 	if (HitCard)
 	{
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, HitCard->TypeString() );
-		}
+		//if (GEngine)
+		//{
+		//	GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Green, HitCard->TypeString() );
+		//}
 		
 		ItemInventory.Add(HitCard->CardType);
 		HitCard->Destroy();
@@ -351,10 +352,10 @@ void AFPSCharacter::InvLeft()
 			SelectedInventoryItem = ItemInventory.Num() - 1;
 		}
 
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, GetCardEnumAsString(ItemInventory[SelectedInventoryItem].GetValue()));
-		}
+		//if (GEngine)
+		//{
+		//	GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, GetCardEnumAsString(ItemInventory[SelectedInventoryItem].GetValue()));
+		//}
 	}
 }
 
@@ -371,10 +372,10 @@ void AFPSCharacter::InvRight()
 			SelectedInventoryItem = 0;
 		}
 
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, GetCardEnumAsString(ItemInventory[SelectedInventoryItem].GetValue()));
-		}
+		//if (GEngine)
+		//{
+		//	GEngine->AddOnScreenDebugMessage(-1, 4.0f, FColor::Yellow, GetCardEnumAsString(ItemInventory[SelectedInventoryItem].GetValue()));
+		//}
 	}
 }
 

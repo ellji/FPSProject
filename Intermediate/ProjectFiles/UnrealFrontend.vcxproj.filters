@@ -4,14 +4,14 @@
 	<ItemGroup>
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\UnrealFrontend.Target.cs" />
 		<Filter Include="Config">
-			<UniqueIdentifier>{C058BB84-A2BC-4134-AD13-258DF23223FB}</UniqueIdentifier>
+			<UniqueIdentifier>{85FDFB22-6598-416E-A151-21FDD39DD613}</UniqueIdentifier>
 		</Filter>
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Programs\UnrealFrontend\Config\DefaultEngine.ini">
 			<Filter>Config</Filter>
 		</None >
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\UnrealFrontend.Build.cs" />
 		<Filter Include="Private">
-			<UniqueIdentifier>{E041807B-DC49-457D-BC03-713843570D71}</UniqueIdentifier>
+			<UniqueIdentifier>{0909F783-5D82-41B4-94E8-4407E59DE056}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\Private\UnrealFrontendMain.cpp">
 			<Filter>Private</Filter>
@@ -20,22 +20,22 @@
 			<Filter>Private</Filter>
 		</ClInclude >
 		<Filter Include="Private\Mac">
-			<UniqueIdentifier>{602AC857-85EE-4506-B8A9-0AB6A534E879}</UniqueIdentifier>
+			<UniqueIdentifier>{4E81BED1-643A-447F-AFB3-D99D288557E0}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\Private\Mac\MacUnrealFrontendMain.cpp">
 			<Filter>Private\Mac</Filter>
 		</ClCompile >
 		<Filter Include="Private\Windows">
-			<UniqueIdentifier>{F0A1A918-9191-4B9A-A740-6A6B342E766A}</UniqueIdentifier>
+			<UniqueIdentifier>{7D2DEBD9-9825-4D57-BC6A-F3E1D5400E2B}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\Private\Windows\WindowsUnrealFrontendMain.cpp">
 			<Filter>Private\Windows</Filter>
 		</ClCompile >
 		<Filter Include="Resources">
-			<UniqueIdentifier>{A5FA5E60-4654-4537-9BA7-E1901B11F79A}</UniqueIdentifier>
+			<UniqueIdentifier>{8E47B618-FD7B-405C-8D3C-0A7E1DDBC9E0}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Resources\Windows">
-			<UniqueIdentifier>{86A4BBBF-D333-4CA6-B170-548B64A7ECED}</UniqueIdentifier>
+			<UniqueIdentifier>{3B5CFF86-E91A-44E7-B326-53E2E9B84AFD}</UniqueIdentifier>
 		</Filter>
 		<Manifest Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\UnrealFrontend\Resources\Windows\Debug-UnrealFrontend-Win32.manifest">
 			<Filter>Resources\Windows</Filter>

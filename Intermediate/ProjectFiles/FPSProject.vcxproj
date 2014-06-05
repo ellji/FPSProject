@@ -323,8 +323,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\FPSProject\CardInvUIWidget.cpp" />
-    <ClInclude Include="..\..\Source\FPSProject\CardInvUIWidget.h" />
     <None Include="..\..\FPSProject.uproject" />
     <None Include="..\..\Source\FPSProject.Target.cs" />
     <None Include="..\..\Source\FPSProjectEditor.Target.cs" />
@@ -336,7 +334,9 @@
     <ClInclude Include="..\..\Source\FPSProject\AbilityCard.h" />
     <ClCompile Include="..\..\Source\FPSProject\BlockState.cpp" />
     <ClInclude Include="..\..\Source\FPSProject\BlockState.h" />
+    <ClCompile Include="..\..\Source\FPSProject\CardInvUIWidget.cpp" />
     <ClCompile Include="..\..\Source\FPSProject\FPSCharacter.cpp" />
+    <ClInclude Include="..\..\Source\FPSProject\CardInvUIWidget.h" />
     <ClInclude Include="..\..\Source\FPSProject\FPSCharacter.h" />
     <ClCompile Include="..\..\Source\FPSProject\FPSGameMode.cpp" />
     <ClInclude Include="..\..\Source\FPSProject\FPSGameMode.h" />

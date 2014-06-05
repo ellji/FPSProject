@@ -25,7 +25,7 @@ class AFPSHud : public AHUD
 		//Reference to an SCompoundWidget, TSharedPtr adds to the refcount of MyUIWidget
 		//MyUIWidget will not self-destruct as long as refcount > 0
 		//MyUIWidget refcount will be (refcout-1) if HUD is destroyed.
-		TSharedPtr<class SCardInvUIWidget> CardInvUIWidget;
+		//TSharedPtr<class SCardInvUIWidget> CardInvUIWidget;
 
 		/** crosshair asset pointer */
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Textures")

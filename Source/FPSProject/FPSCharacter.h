@@ -41,9 +41,6 @@ class AFPSCharacter : public ACharacter
 		/** gun muzzle's offset from the camera location */
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 			FVector MuzzleOffset;
-		/** projectile class to spawn */
-		UPROPERTY(EditDefaultsOnly, Category = Projectile)
-			TSubclassOf<class AFPSProjectile> ProjectileClass;
 		/** arm distance */
 		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaction")
 			float PlayerInteractionDistance;

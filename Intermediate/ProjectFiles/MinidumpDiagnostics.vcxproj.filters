@@ -5,28 +5,28 @@
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\MinidumpDiagnostics.Target.cs" />
 		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\MinidumpDiagnostics.Build.cs" />
 		<Filter Include="Private">
-			<UniqueIdentifier>{7A0D6FD6-257F-4B47-9F82-4CDB394F8C8F}</UniqueIdentifier>
+			<UniqueIdentifier>{99B123BE-1116-4246-8D50-E346ECAE79C3}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Private\MinidumpDiagnosticsApp.cpp">
 			<Filter>Private</Filter>
 		</ClCompile >
 		<Filter Include="Private\Windows">
-			<UniqueIdentifier>{45717297-B754-4DBA-9CA2-EA58E3C40B2A}</UniqueIdentifier>
+			<UniqueIdentifier>{E89DC64E-7A37-4C82-B2BF-E7AA504EAF83}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Private\Windows\MinidumpDiagnosticsMainWindows.cpp">
 			<Filter>Private\Windows</Filter>
 		</ClCompile >
 		<Filter Include="Public">
-			<UniqueIdentifier>{F8BD9188-F8F0-46CC-B030-E00C0CF0C21E}</UniqueIdentifier>
+			<UniqueIdentifier>{51009B38-ADF1-4E90-96CD-6213BA6962D7}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Public\MinidumpDiagnosticsApp.h">
 			<Filter>Public</Filter>
 		</ClInclude >
 		<Filter Include="Resources">
-			<UniqueIdentifier>{56E1F53B-8FEB-48E9-9E3C-4AE270DB9BF6}</UniqueIdentifier>
+			<UniqueIdentifier>{E62A0135-EAD1-449F-B305-06E330D22EE2}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Resources\Windows">
-			<UniqueIdentifier>{D52A4F44-4DBE-4981-A451-FC28451F5A1A}</UniqueIdentifier>
+			<UniqueIdentifier>{C59CCE9E-267D-41CC-A58D-E630AB9CE1D0}</UniqueIdentifier>
 		</Filter>
 		<Manifest Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\CrashReporter\MinidumpDiagnostics\Resources\Windows\Debug-PCLaunch-Win32.manifest">
 			<Filter>Resources\Windows</Filter>
