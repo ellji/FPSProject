@@ -2,46 +2,46 @@
 
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<ItemGroup>
-		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.Target.cs" />
-		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.Build.cs" />
-		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.uproject" />
+		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.Target.cs" />
+		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.Build.cs" />
+		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\UnrealLaunchDaemon.uproject" />
 		<Filter Include="Build">
-			<UniqueIdentifier>{6C77B921-2725-49F8-A688-9C1149C88431}</UniqueIdentifier>
+			<UniqueIdentifier>{991E1E1D-5A18-4BF6-8349-9EC08FE2675F}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Build\IOS">
-			<UniqueIdentifier>{F1D29B2D-9FD0-478F-94CE-48EF76557002}</UniqueIdentifier>
+			<UniqueIdentifier>{0AB23351-8982-48AF-99EE-5620736D2DB4}</UniqueIdentifier>
 		</Filter>
-		<None Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Build\IOS\UnrealLaunchDaemon-Info.plist">
+		<None Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Build\IOS\UnrealLaunchDaemon-Info.plist">
 			<Filter>Build\IOS</Filter>
 		</None >
 		<Filter Include="Private">
-			<UniqueIdentifier>{B72B3F49-0248-44CC-B289-E8D6E2136A37}</UniqueIdentifier>
+			<UniqueIdentifier>{7864BC2B-EE74-44BA-9568-68458BDF90C7}</UniqueIdentifier>
 		</Filter>
-		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\LaunchDaemonMessageHandler.cpp">
+		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\LaunchDaemonMessageHandler.cpp">
 			<Filter>Private</Filter>
 		</ClCompile >
-		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\LaunchDaemonMessageHandler.h">
+		<ClInclude Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\LaunchDaemonMessageHandler.h">
 			<Filter>Private</Filter>
 		</ClInclude >
-		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\UnrealLaunchDaemon.h">
+		<ClInclude Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\UnrealLaunchDaemon.h">
 			<Filter>Private</Filter>
 		</ClInclude >
-		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\UnrealLaunchDaemonApp.cpp">
+		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\UnrealLaunchDaemonApp.cpp">
 			<Filter>Private</Filter>
 		</ClCompile >
-		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\UnrealLaunchDaemonApp.h">
+		<ClInclude Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\UnrealLaunchDaemonApp.h">
 			<Filter>Private</Filter>
 		</ClInclude >
 		<Filter Include="Private\IOS">
-			<UniqueIdentifier>{06DFEA74-C4DF-429F-B60A-5DABDAFCA58A}</UniqueIdentifier>
+			<UniqueIdentifier>{EEDD700A-C6C4-41DC-8856-EAEA625487A7}</UniqueIdentifier>
 		</Filter>
-		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\IOS\IOSLaunchDaemonAppMain.cpp">
+		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\IOS\IOSLaunchDaemonAppMain.cpp">
 			<Filter>Private\IOS</Filter>
 		</ClCompile >
-		<ClCompile Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\IOS\IOSLaunchDaemonView.cpp">
+		<ClCompile Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\IOS\IOSLaunchDaemonView.cpp">
 			<Filter>Private\IOS</Filter>
 		</ClCompile >
-		<ClInclude Include="C:\Users\Chris\Documents\Git\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\IOS\IOSLaunchDaemonView.h">
+		<ClInclude Include="..\..\..\UnrealEngine\Engine\Source\Programs\IOS\UnrealLaunchDaemon\Private\IOS\IOSLaunchDaemonView.h">
 			<Filter>Private\IOS</Filter>
 		</ClInclude >
 	</ItemGroup>
