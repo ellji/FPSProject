@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\FPSProject.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{48FE50B9-763F-483F-82E2-10FB05A59909}</UniqueIdentifier>
+			<UniqueIdentifier>{6F60EF5E-28FF-45D8-9616-74C5A2A911AD}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\FPSProject.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{AD9176AA-83C2-45F2-8DD7-563ABE2B1E60}</UniqueIdentifier>
+			<UniqueIdentifier>{93AE10AC-6984-4CC6-962D-3AEC903EAB70}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditorUserSettings.ini">
 			<Filter>Config</Filter>
@@ -28,7 +28,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\FPSProject">
-			<UniqueIdentifier>{D2DDBFCE-40FC-40DC-BE7C-18DF39EE435A}</UniqueIdentifier>
+			<UniqueIdentifier>{AEE02B52-D6A5-4A87-949D-B4B229D96EFA}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\FPSProject\AbilityCard.cpp">
 			<Filter>Source\FPSProject</Filter>
@@ -88,10 +88,10 @@
 			<Filter>Source\FPSProject</Filter>
 		</ClInclude >
 		<Filter Include="Source\FPSProject\Resources">
-			<UniqueIdentifier>{DB0FB775-DDCA-48DE-8380-02221F27193B}</UniqueIdentifier>
+			<UniqueIdentifier>{9AB972B3-08AE-442D-9F06-EED2DAC4AEE8}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Source\FPSProject\Resources\Windows">
-			<UniqueIdentifier>{18D75BB5-937F-4E86-AAA2-9E0DB49009D0}</UniqueIdentifier>
+			<UniqueIdentifier>{750841D7-E15C-46BB-982E-828FF9FD3286}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\FPSProject\Resources\Windows\FPSProject.ico">
 			<Filter>Source\FPSProject\Resources\Windows</Filter>
