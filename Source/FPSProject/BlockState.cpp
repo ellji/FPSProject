@@ -70,7 +70,6 @@ void ABlockState::Tick(float DeltaTime)
 				return;
 			}
 
-			BodyInst->AngularDamping = 100.0f;
 			BodyInst->AddImpulse(FVector(0, 0, JumpHeight), true);
 
 			if (GEngine)
